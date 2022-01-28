@@ -1,0 +1,15 @@
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\Platinum.Life.Entities.dll.config
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\Platinum.Life.Entities.dll
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\Platinum.Life.Entities.pdb
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\EntityFramework.dll
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\EntityFramework.SqlServer.dll
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\EntityFramework.xml
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\EntityFramework.SqlServer.xml
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.csproj.CoreCompileInputs.cache
+F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.dll
+F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.pdb
+F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.csproj.AssemblyReference.cache
