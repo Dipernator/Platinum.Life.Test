@@ -1,0 +1,4 @@
+enable-migrations
+add-migration InitialCreate
+update-database
+update-database Verbose

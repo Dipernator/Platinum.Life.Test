@@ -81,6 +81,18 @@
     <Compile Include="Migrations\202201280403077_Status.designer.cs">
       <DependentUpon>202201280403077_Status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201291637172_AddedAttachmentToPayment.cs" />
+    <Compile Include="Migrations\202201291637172_AddedAttachmentToPayment.designer.cs">
+      <DependentUpon>202201291637172_AddedAttachmentToPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201291706355_RemoveMultipleAtt.cs" />
+    <Compile Include="Migrations\202201291706355_RemoveMultipleAtt.designer.cs">
+      <DependentUpon>202201291706355_RemoveMultipleAtt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201291722401_RemoveMultipleAtt1.cs" />
+    <Compile Include="Migrations\202201291722401_RemoveMultipleAtt1.designer.cs">
+      <DependentUpon>202201291722401_RemoveMultipleAtt1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -109,6 +121,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201280403077_Status.resx">
       <DependentUpon>202201280403077_Status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201291637172_AddedAttachmentToPayment.resx">
+      <DependentUpon>202201291637172_AddedAttachmentToPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201291706355_RemoveMultipleAtt.resx">
+      <DependentUpon>202201291706355_RemoveMultipleAtt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201291722401_RemoveMultipleAtt1.resx">
+      <DependentUpon>202201291722401_RemoveMultipleAtt1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

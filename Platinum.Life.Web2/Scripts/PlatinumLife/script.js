@@ -64,7 +64,8 @@ function SubmitLoginForm() {
 }
 
 // Submit from to create a payment requisition
-function SubmitPaymentRequisitionForm() {;
+function SubmitPaymentRequisitionForm() {
+    console.log($("#frm-create-payment-requisition").serialize());
     try {
         $.ajax({
             url: ProtocolAndHost() + '/PaymentRequisition/Create',

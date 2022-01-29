@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platinum.Life.Services", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platinum.Life.Web2", "Platinum.Life.Web2\Platinum.Life.Web2.csproj", "{AB48E466-8275-49A3-8A5A-13289DBFC2C7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platinum.Life.Documention", "Platinum.Life.Documention", "{60A101D1-76FE-4BC0-85AD-B91E0EEDD4B5}"
+	ProjectSection(SolutionItems) = preProject
+		helper.txt = helper.txt
+		a\Platinum Life - Interview Exercise Specification.pdf = a\Platinum Life - Interview Exercise Specification.pdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
