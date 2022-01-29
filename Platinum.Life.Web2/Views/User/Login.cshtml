@@ -18,37 +18,3 @@
 
     <button type="submit" value="Submit">Login</button>
 </form>
-
-
-<script>
-    $("#frm-login").submit(function (e) {
-        SubmitLoginForm();
-        e.preventDefault();
-    });
-
-    function SubmitLoginForm() {
-        try {
-            $.ajax({
-                type: "POST",
-                cache: false,
-                url: window.location.protocol + '//' + window.location.host + '/User/Login',
-                data: $("#frm-login").serialize(),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) {
-                    if (data.success) {
-                        try {
-
-                        } catch (err) {
-                            alert(err)
-                        }
-                    } else {
-                        alert("")
-                    }
-                }
-            });
-        } catch (err) {
-            alert(err)
-        }    
-    }
-</script>

@@ -56,20 +56,20 @@ namespace Platinum.Life.Web2.Controllers
             {
                 SignInStatus signInStatusResult = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
 
-                return Json(new { success = signInStatusResult, entity = "", message = "Invalid login attempt" });
-
-                //switch (signInStatusResult)
-                //{
-                //    case SignInStatus.Success:
-                //        return Json(new { success = signInStatusResult, entity = "", message = "" });
-                //    case SignInStatus.Failure:
-                //        return Json(new { success = signInStatusResult, entity = "", message = "" });
-                //    default:
-                //        return Json(new { success = signInStatusResult, entity = "", message = "" });
-                //}
+                // TODO : Clean up
+                switch (signInStatusResult)
+                {
+                    case SignInStatus.Success:
+                        return Json(new { success = true, entity = "", message = "" });
+                    case SignInStatus.Failure:
+                        return Json(new { success = false, entity = "", message = "Invalid login attempt" });
+                    default:
+                        return Json(new { success = false, entity = "", message = "Invalid login attempt" });
+                }
             }
             catch (Exception ex)
             {
+                LoggingService.Instance.LogException(ex);
                 return Json(new { success = false, entity = "", message = ex.ToString() });
             }
         }
@@ -99,18 +99,14 @@ namespace Platinum.Life.Web2.Controllers
 
                 if (!createUserResult.Succeeded)
                 {
-                    return Json(new { success = createUserResult.Succeeded, entity = createUserResult.Succeeded, message = string.Join(" ", createUserResult.Errors) });
+                    return Json(new { success = createUserResult.Succeeded, entity = createUserResult.Succeeded, message = string.Join(" ", createUserResult.Errors) }, JsonRequestBehavior.AllowGet);
                 }
 
                 return Json(new { success = createUserResult.Succeeded, entity = createUserResult.Succeeded, message = createUserResult.Succeeded });
-
-
-                // await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
             }
             catch (Exception ex)
             {
-
+                LoggingService.Instance.LogException(ex);
                 return Json(new { success = false, entity = "", message = "" });
             }
         }

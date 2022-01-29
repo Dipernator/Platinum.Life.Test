@@ -151,3 +151,4 @@ F:\TEST\PlatinumLife\Platinum.Life.Web2\bin\Microsoft.Extensions.Logging.Abstrac
 F:\TEST\PlatinumLife\Platinum.Life.Web2\bin\Microsoft.Extensions.Options.xml
 F:\TEST\PlatinumLife\Platinum.Life.Web2\bin\Microsoft.Extensions.Primitives.xml
 F:\TEST\PlatinumLife\Platinum.Life.Web2\bin\System.Diagnostics.DiagnosticSource.xml
+F:\TEST\PlatinumLife\Platinum.Life.Web2\obj\Debug\Platinum.Life.Web2.csproj.CopyComplete

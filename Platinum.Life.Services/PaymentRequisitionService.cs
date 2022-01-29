@@ -35,7 +35,7 @@ namespace Platinum.Life.Services
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public Response<int> Add(Entities.PaymentRequisition model)
+        public Response<int> Create(Entities.PaymentRequisition model)
         {
             try
             {
@@ -49,6 +49,7 @@ namespace Platinum.Life.Services
             }
             catch (Exception ex)
             {
+                LoggingService.Instance.LogException(ex);
                 return new Response<int>() { Entity = -1, Message = ex.Message, Success = false };
             }
         }
@@ -69,6 +70,28 @@ namespace Platinum.Life.Services
             }
             catch (Exception ex)
             {
+                LoggingService.Instance.LogException(ex);
+                return new Response<List<PaymentRequisition>>() { Entity = null, Message = ex.Message, Success = false };
+            }
+        }
+        
+        /// <summary>
+        /// Get all users payment requisitions
+        /// </summary>
+        /// <returns></returns>
+        public Response<List<PaymentRequisition>> GetByUser(string userId)
+        {
+            try
+            {
+                Data.DbContext context = new Data.DbContext();
+
+                List<PaymentRequisition> result = context.PaymentRequisition.Where(m => m.UserId == userId).ToList();
+
+                return (result != null) ? new Response<List<PaymentRequisition>>() { Entity = result, Message = "", Success = true } : new Response<List<PaymentRequisition>>() { Entity = result, Message = "", Success = false };
+            }
+            catch (Exception ex)
+            {
+                LoggingService.Instance.LogException(ex);
                 return new Response<List<PaymentRequisition>>() { Entity = null, Message = ex.Message, Success = false };
             }
         }
@@ -90,6 +113,7 @@ namespace Platinum.Life.Services
             }
             catch (Exception ex)
             {
+                LoggingService.Instance.LogException(ex);
                 return new Response<PaymentRequisition>() { Entity = null, Message = ex.Message, Success = false };
             }
         }
@@ -110,6 +134,7 @@ namespace Platinum.Life.Services
             }
             catch (Exception ex)
             {
+                LoggingService.Instance.LogException(ex);
                 return new Response<List<PaymentRequisition>>() { Entity = null, Message = ex.Message, Success = false };
             }
         }
@@ -132,6 +157,7 @@ namespace Platinum.Life.Services
             }
             catch (Exception ex)
             {
+                LoggingService.Instance.LogException(ex);
                 return new Response<bool>() { Entity = false, Message = ex.Message, Success = false };
             }
         }

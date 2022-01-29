@@ -27,37 +27,3 @@
 
     <button type="submit" value="Submit">Register</button>
 </form>
-
-
-<script>
-    $("#frm-register").submit(function (e) {
-        SubmitRegisterForm();
-        e.preventDefault();
-    });
-
-    function SubmitRegisterForm() {
-        try {
-            $.ajax({
-                type: "POST",
-                cache: false,
-                url: window.location.protocol + '//' + window.location.host + '/User/Register',
-                data: $("#frm-register").serialize(),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) {
-                    if (data.success) {
-                        try {
-
-                        } catch (err) {
-                            alert(err)
-                        }
-                    } else {
-                        alert("")
-                    }
-                }
-            });
-        } catch (err) {
-            alert(err)
-        }
-    }
-</script>
