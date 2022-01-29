@@ -68,7 +68,7 @@ function SubmitPaymentRequisitionForm() {
     console.log($("#frm-create-payment-requisition").serialize());
     try {
         $.ajax({
-            url: ProtocolAndHost() + '/PaymentRequisition/Create',
+            url: ProtocolAndHost() + '/PaymentRequisition/CreateOrUpdate',
             type: "POST",
             data: $("#frm-create-payment-requisition").serialize(),
         }).done(function (response) {

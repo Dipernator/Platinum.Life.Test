@@ -41,7 +41,35 @@ namespace Platinum.Life.Services
             {
                 Data.DbContext context = new Data.DbContext();
 
+                model.Signature = new Signature();
                 context.PaymentRequisition.Add(model);
+
+                int result = context.SaveChanges();
+
+                return (result < 1) ? new Response<int>() { Entity = result, Message = "", Success = false } : new Response<int>() { Entity = result, Message = "", Success = true };
+            }
+            catch (Exception ex)
+            {
+                LoggingService.Instance.LogException(ex);
+                return new Response<int>() { Entity = -1, Message = ex.Message, Success = false };
+            }
+        }
+
+        /// <summary>
+        /// Update payment requisition
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public Response<int> Update(Entities.PaymentRequisition model)
+        {
+            try
+            {
+                Data.DbContext context = new Data.DbContext();
+
+                PaymentRequisition existingPaymentRequisition = context.PaymentRequisition.Find(model.Id);
+
+                context.Entry(existingPaymentRequisition).CurrentValues.SetValues(model);
+                context.Entry(existingPaymentRequisition.BankDetails).CurrentValues.SetValues(model.BankDetails);
 
                 int result = context.SaveChanges();
 

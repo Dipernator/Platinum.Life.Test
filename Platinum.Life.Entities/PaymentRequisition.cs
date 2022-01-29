@@ -7,10 +7,9 @@ namespace Platinum.Life.Entities
         public string UserId { get; set; }
         public int DepartmentId { get; set; }
         public DateTime DateOfInvoice { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate { get; set; } = DateTime.Now;
         public string Description { get; set; }
-        public int StatusId { get; set; }        
-        public virtual Attachment Attachment { get; set; }
+        public int StatusId { get; set; }
         public virtual Signature Signature { get; set; }
         public virtual BankDetails BankDetails { get; set; }
     }

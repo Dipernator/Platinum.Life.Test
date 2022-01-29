@@ -1,0 +1,60 @@
+﻿@model Platinum.Life.Entities.PaymentRequisition
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<form id="frm-create-payment-requisition" method="post">
+    @Html.AntiForgeryToken()
+    <!-- Id -->
+    <label for="Id">Id</label><br />
+    <input name="Id" type="hidden" value="@Html.DisplayFor(model => model.Id)" /><br />
+
+    <!-- DepartmentId -->
+    <label for="DepartmentId">DepartmentId</label><br />
+    <input name="DepartmentId" type="text" value="@Html.DisplayFor(model => model.DepartmentId)" /><br />
+
+    <!-- DateOfInvoice -->
+    <label for="DateOfInvoice">DateOfInvoice</label><br />
+    <input name="DateOfInvoice" type="text" value="@Html.DisplayFor(model => model.DateOfInvoice)" /><br />
+
+    <!-- Description -->
+    <label for="Description">Description</label><br />
+    <input name="Description" type="text" value="@Html.DisplayFor(model => model.Description)" /><br />
+
+    <!-- BANKING DETAILS -->
+    <!-- AccountNumber -->
+    <input name="BankDetails.Id" type="hidden" value="@Html.DisplayFor(model => model.BankDetails.Id)" /><br />
+
+    <label for="BankDetails.AccountNumber">AccountNumber</label><br />
+    <input name="BankDetails.AccountNumber" type="text" value="@Html.DisplayFor(model => model.BankDetails.AccountNumber)" /><br />
+
+    <!-- AccountHolder -->
+    <label for="BankDetails.AccountHolder">AccountHolder</label><br />
+    <input name="BankDetails.AccountHolder" type="text" value="@Html.DisplayFor(model => model.BankDetails.AccountHolder)" /><br />
+
+    <!-- Bank -->
+    <label for="BranchCode.Bank">Bank</label><br />
+    <select name="BranchCode.Bank" id="Bank">
+        <option value="Absa">Absa</option>
+        <option value="FNB">FNB</option>
+    </select><br />
+
+    <!-- BranchCode -->
+    <label for="BranchCode">BranchCode</label><br />
+    <input name="BankDetails.BranchCode" type="text" value="@Html.DisplayFor(model => model.BankDetails.BranchCode)" /><br />
+
+    <!-- BranchCode -->
+    <label for="Attachment">Attachment</label><br />
+    <input name="Attachment.Url" id="Attachment" class="form-control" type="file" />
+
+    <!-- Button -->
+    <button type="submit" value="Submit">Create</button>
+</form>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

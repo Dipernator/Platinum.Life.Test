@@ -93,6 +93,10 @@
     <Compile Include="Migrations\202201291722401_RemoveMultipleAtt1.designer.cs">
       <DependentUpon>202201291722401_RemoveMultipleAtt1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201291801584_MoveAtt.cs" />
+    <Compile Include="Migrations\202201291801584_MoveAtt.designer.cs">
+      <DependentUpon>202201291801584_MoveAtt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -130,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201291722401_RemoveMultipleAtt1.resx">
       <DependentUpon>202201291722401_RemoveMultipleAtt1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201291801584_MoveAtt.resx">
+      <DependentUpon>202201291801584_MoveAtt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

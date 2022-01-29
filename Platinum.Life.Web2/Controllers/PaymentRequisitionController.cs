@@ -64,9 +64,18 @@ namespace Platinum.Life.Web2.Controllers
         {
             try
             {
-                Response<List<PaymentRequisition>> paymentRequisitionResult = PaymentRequisitionService.Instance.GetByUser(User.Identity.GetUserId());
+                Response<List<PaymentRequisition>> paymentRequisitionResult = new Response<List<PaymentRequisition>>();
 
-                if (!paymentRequisitionResult.Success) {
+                if (User.IsInRole("Admin"))
+                {
+                    paymentRequisitionResult = PaymentRequisitionService.Instance.GetAll();
+                }
+                else {
+                    paymentRequisitionResult = PaymentRequisitionService.Instance.GetByUser(User.Identity.GetUserId());
+                }
+
+                if (!paymentRequisitionResult.Success)
+                {
                     return View(new List<PaymentRequisition>());
                 }
 
@@ -89,21 +98,52 @@ namespace Platinum.Life.Web2.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<JsonResult> Create(PaymentRequisition model) {
+        public async Task<JsonResult> CreateOrUpdate(PaymentRequisition model)
+        {
             try
             {
+                Response<int> createOrUpdatePaymentRequisitionResult = new Response<int>();
                 model.UserId = User.Identity.GetUserId();
-                
+                // Update
+                if (model.Id > 0)
+                {
+                    createOrUpdatePaymentRequisitionResult = PaymentRequisitionService.Instance.Update(model);
+                }
+                // Create
+                else
+                {    
+                    createOrUpdatePaymentRequisitionResult = PaymentRequisitionService.Instance.Create(model);
+                }
 
-
-                Response<int> createPaymentRequisitionResult =  PaymentRequisitionService.Instance.Create(model);
-
-                return Json(new { success = true, entity = "", message = "" });
+                return Json(new { success = createOrUpdatePaymentRequisitionResult.Success, entity = createOrUpdatePaymentRequisitionResult.Entity, message = createOrUpdatePaymentRequisitionResult.Message });
             }
             catch (Exception ex)
             {
                 LoggingService.Instance.LogException(ex);
                 return Json(new { success = false, entity = "", message = ex.ToString() });
+            }
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Details(int id)
+        {
+            try
+            {
+            
+                Response<PaymentRequisition> paymentRequisitionResult = PaymentRequisitionService.Instance.GetById(id);
+                if (!paymentRequisitionResult.Success || paymentRequisitionResult == null)
+                {
+                    return View(new Response<PaymentRequisition>());
+                }
+
+                return View(paymentRequisitionResult.Entity);
+            }
+            catch (Exception ex)
+            {
+                LoggingService.Instance.LogException(ex);
+                // TODO : error page
+                return View();
             }
         }
     }
