@@ -14,7 +14,7 @@ namespace Platinum.Life.Entities
         public DateTime CreateDate { get; set; }
         public string Description { get; set; }
         public int StatusId { get; set; }
-        public virtual List<Attachement> Attachement { get; set; }
+        public virtual List<Attachment> Attachement { get; set; }
         public virtual Signature Signature { get; set; }
         public virtual BankDetails BankDetails { get; set; }
     }

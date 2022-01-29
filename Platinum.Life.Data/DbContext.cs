@@ -32,7 +32,7 @@ namespace Platinum.Life.Data
         }
 
         public DbSet<BankDetails> BankDetails { get; set; }
-        public DbSet<Attachement> Attachement { get; set; }
+        public DbSet<Attachment> Attachement { get; set; }
         public DbSet<Department> Department { get; set; }
         public DbSet<PaymentRequisition> PaymentRequisition { get; set; }
         public DbSet<Signature> Signature { get; set; }
