@@ -87,18 +87,14 @@ namespace Platinum.Life.Web2.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<JsonResult> Create(PaymentRequisition model) {
             try
             {
-                //BankDetails = new 
-                //PaymentRequisition paymentRequisition = new PaymentRequisition()
-                //{
-                //    BankDetails = 
-
-                //};
                 model.UserId = User.Identity.GetUserId();
+                
+
 
                 Response<int> createPaymentRequisitionResult =  PaymentRequisitionService.Instance.Create(model);
 

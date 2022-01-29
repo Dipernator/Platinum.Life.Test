@@ -10,5 +10,4 @@ namespace Platinum.Life.Entities
     {
         public string Url { get; set; }
     }
-
 }

@@ -13,7 +13,7 @@ $("#frm-create-payment-requisition").submit(function (e) {
     e.preventDefault();
 });
 
-// Submit registeration details
+// Submit registration details
 function SubmitRegisterForm() {
     try {
         $.ajax({
@@ -63,8 +63,8 @@ function SubmitLoginForm() {
     }
 }
 
-// Submit from to creata a payment requistion
-function SubmitPaymentRequisitionForm() {
+// Submit from to create a payment requisition
+function SubmitPaymentRequisitionForm() {;
     try {
         $.ajax({
             url: ProtocolAndHost() + '/PaymentRequisition/Create',
