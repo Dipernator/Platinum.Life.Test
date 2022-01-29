@@ -5,6 +5,7 @@ using Platinum.Life.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -48,6 +49,7 @@ namespace Platinum.Life.Web2.Controllers
             SignInManager = signInManager;
         }
 
+
         // GET: PaymentRequisition
         public ActionResult Index()
         {
@@ -79,5 +81,34 @@ namespace Platinum.Life.Web2.Controllers
         }
 
 
+        public ActionResult Create()
+        {
+            return View(new PaymentRequisition());
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<JsonResult> Create(PaymentRequisition model) {
+            try
+            {
+                //BankDetails = new 
+                //PaymentRequisition paymentRequisition = new PaymentRequisition()
+                //{
+                //    BankDetails = 
+
+                //};
+                model.UserId = User.Identity.GetUserId();
+
+                Response<int> createPaymentRequisitionResult =  PaymentRequisitionService.Instance.Create(model);
+
+                return Json(new { success = true, entity = "", message = "" });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.Instance.LogException(ex);
+                return Json(new { success = false, entity = "", message = ex.ToString() });
+            }
+        }
     }
 }

@@ -45,7 +45,7 @@ namespace Platinum.Life.Services
 
                 int result = context.SaveChanges();
 
-                return (result < 1) ? new Response<int>() { Entity = result, Message = "", Success = true } : new Response<int>() { Entity = result, Message = "", Success = false };
+                return (result < 1) ? new Response<int>() { Entity = result, Message = "", Success = false } : new Response<int>() { Entity = result, Message = "", Success = true };
             }
             catch (Exception ex)
             {

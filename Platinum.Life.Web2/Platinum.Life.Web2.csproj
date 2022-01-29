@@ -300,6 +300,7 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\PaymentRequisition\Index.cshtml" />
     <Content Include="Views\PaymentRequisition\List.cshtml" />
+    <Content Include="Views\PaymentRequisition\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
