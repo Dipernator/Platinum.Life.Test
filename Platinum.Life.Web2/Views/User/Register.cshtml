@@ -1,0 +1,63 @@
+﻿@using Platinum.Life.Web2.Models
+@model RegisterUserModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+
+<h2>Login</h2>
+
+<form id="frm-register" method="post">
+    @Html.AntiForgeryToken()
+    <label for="FirstName">FirstName</label><br />
+    <input name="FirstName" type="text" /><br />
+
+    <label for="Surname">Surname</label><br />
+    <input name="Surname" type="text" /><br />
+
+    <label for="Email">Email</label><br />
+    <input name="Email" type="email" /><br />
+
+    <label for="Password">Password</label><br />
+    <input name="Password" type="password" /><br />
+
+    <label for="ConfirmPassword">ConfirmPassword</label><br />
+    <input name="ConfirmPassword" type="password" /><br />
+
+    <button type="submit" value="Submit">Register</button>
+</form>
+
+
+<script>
+    $("#frm-register").submit(function (e) {
+        SubmitRegisterForm();
+        e.preventDefault();
+    });
+
+    function SubmitRegisterForm() {
+        try {
+            $.ajax({
+                type: "POST",
+                cache: false,
+                url: window.location.protocol + '//' + window.location.host + '/User/Register',
+                data: $("#frm-register").serialize(),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    if (data.success) {
+                        try {
+
+                        } catch (err) {
+                            alert(err)
+                        }
+                    } else {
+                        alert("")
+                    }
+                }
+            });
+        } catch (err) {
+            alert(err)
+        }
+    }
+</script>

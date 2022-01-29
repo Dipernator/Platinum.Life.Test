@@ -54,21 +54,23 @@ namespace Platinum.Life.Web2.Controllers
         {
             try
             {
-                SignInStatus result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+                SignInStatus signInStatusResult = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
 
-                switch (result)
-                {
-                    case SignInStatus.Success:
-                        return Json(new { success = true, entity = "", message = "" });
-                    case SignInStatus.Failure:
-                        return Json(new { success = false, entity = "", message = "" });
-                    default:
-                        return Json(new { success = false, entity = "", message = "" });
-                }
+                return Json(new { success = signInStatusResult, entity = "", message = "Invalid login attempt" });
+
+                //switch (signInStatusResult)
+                //{
+                //    case SignInStatus.Success:
+                //        return Json(new { success = signInStatusResult, entity = "", message = "" });
+                //    case SignInStatus.Failure:
+                //        return Json(new { success = signInStatusResult, entity = "", message = "" });
+                //    default:
+                //        return Json(new { success = signInStatusResult, entity = "", message = "" });
+                //}
             }
             catch (Exception ex)
             {
-                return Json(new { success = false, entity = "", message = ex.ToString()});
+                return Json(new { success = false, entity = "", message = ex.ToString() });
             }
         }
 
@@ -85,21 +87,32 @@ namespace Platinum.Life.Web2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<JsonResult> Register(RegisterUserModel model)
         {
-            JsonResult jsonResult = new JsonResult();
             try
             {
+                if (model.Password != model.ConfirmPassword)
+                {
+                    return Json(new { success = false, entity = "", message = "Password missmatch" });
+                }
 
-                var user = new User { FirstName = "Tshepang", Surname = "Motloung", UserName = "tamotloung@hotmail.co.za", Email = "tamotloung@hotmail.co.za" };
-                var result = await UserManager.CreateAsync(user, "ts4life@ONEADMIN");
+                User user = new User { FirstName = model.FirstName, Surname = model.Surname, UserName = model.Email, Email = model.Email };
+                IdentityResult createUserResult = await UserManager.CreateAsync(user, model.Password);
 
-                jsonResult.Data = new { Success = true, Message = "true" };
+                if (!createUserResult.Succeeded)
+                {
+                    return Json(new { success = createUserResult.Succeeded, entity = createUserResult.Succeeded, message = string.Join(" ", createUserResult.Errors) });
+                }
+
+                return Json(new { success = createUserResult.Succeeded, entity = createUserResult.Succeeded, message = createUserResult.Succeeded });
+
+
+                // await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
             }
             catch (Exception ex)
             {
-                jsonResult.Data = new { Success = false, Message = ex.Message };
-            }
 
-            return jsonResult;
+                return Json(new { success = false, entity = "", message = "" });
+            }
         }
     }
 }

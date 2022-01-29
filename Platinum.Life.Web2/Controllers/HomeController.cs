@@ -52,90 +52,11 @@ namespace Platinum.Life.Web2.Controllers
             SignInManager = signInManager;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         public ActionResult Index()
         {
-            //PaymentRequisition paymentRequisition = new PaymentRequisition()
-            //{
-            //    CreateDate = DateTime.Now,
-            //    DepartmentId = 1,
-            //    DateOfInvoice = DateTime.Now,
-            //    Description = "Description Celetesss",
-            //    UserId = "b7f9efff-fc6d-4bec-89ce-6312e9799221"
-            //};
-
-            //BankDetails bankDetails = new BankDetails()
-            //{
-            //    AccountHolder = "Celete",
-            //    AccountNumber = "9999999999",
-            //    Bank = "FNB",
-            //    BranchCode = "0000"
-            //};
-
-            //paymentRequisition.BankDetails = bankDetails;
-
-            //var res = PaymentRequisitionService.Instance.Add(paymentRequisition);
-
-
-            //var reasdasds = PaymentRequisitionService.Instance.GetById(5);
-
-  
             return View();
         }
 
-        public async Task<JsonResult> Login()
-        {
-
-            //var user = await UserManager.FindByNameAsync("test");
-            JsonResult jsonResult = new JsonResult();
-            try
-            {
-                PasswordHasher passwordHasher = new PasswordHasher();
-                var p = passwordHasher.HashPassword("kjbasjdbasdnaskdasdjsa");
-                var result = await SignInManager.PasswordSignInAsync("test@test.com", p, false, shouldLockout: false);
-
-
-                switch (result)
-                {
-                    case SignInStatus.Success:
-
-                        jsonResult.Data = new { Success = true, RequiresVerification = false, JsonRequestBehavior.AllowGet };
-                        break;
-                    case SignInStatus.RequiresVerification:
-                        jsonResult.Data = new { Success = true, RequiresVerification = true, JsonRequestBehavior.AllowGet };
-                        break;
-                    case SignInStatus.LockedOut:
-                        jsonResult.Data = new { Success = false, Messages = "LockedOut", JsonRequestBehavior.AllowGet };
-                        break;
-                    case SignInStatus.Failure:
-                        jsonResult.Data = new { Success = false, Messages = "LockedOut", JsonRequestBehavior.AllowGet };
-                        break;
-                    default:
-                        jsonResult.Data = new { Success = false, Messages = "nvalidLoginAttempt", JsonRequestBehavior.AllowGet };
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Message = "Your application description page.";
-            }
-
-
-            return jsonResult;
-        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

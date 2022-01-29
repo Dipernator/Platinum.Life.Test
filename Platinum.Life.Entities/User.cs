@@ -23,6 +23,5 @@ namespace Platinum.Life.Entities
 
             return userIdentity;
         }
-
     }
 }

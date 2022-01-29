@@ -23,3 +23,5 @@ F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.dll
 F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.pdb
 F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.Migrations.Status.resources
 F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.csproj.CopyComplete
+F:\TEST\PlatinumLife\Platinum.Life.Data\bin\Debug\Newtonsoft.Json.dll
+F:\TEST\PlatinumLife\Platinum.Life.Data\bin\Debug\Newtonsoft.Json.xml

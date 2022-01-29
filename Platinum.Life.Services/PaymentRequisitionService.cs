@@ -135,6 +135,5 @@ namespace Platinum.Life.Services
                 return new Response<bool>() { Entity = false, Message = ex.Message, Success = false };
             }
         }
-
     }
 }

@@ -13,3 +13,5 @@ F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.csp
 F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.dll
 F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.pdb
 F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.csproj.AssemblyReference.cache
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\Newtonsoft.Json.dll
+F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\Newtonsoft.Json.xml
