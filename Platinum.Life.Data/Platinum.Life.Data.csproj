@@ -97,6 +97,10 @@
     <Compile Include="Migrations\202201291801584_MoveAtt.designer.cs">
       <DependentUpon>202201291801584_MoveAtt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201301706118_Attchmentagain.cs" />
+    <Compile Include="Migrations\202201301706118_Attchmentagain.designer.cs">
+      <DependentUpon>202201301706118_Attchmentagain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -137,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201291801584_MoveAtt.resx">
       <DependentUpon>202201291801584_MoveAtt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201301706118_Attchmentagain.resx">
+      <DependentUpon>202201301706118_Attchmentagain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,58 +5,84 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2 class="my-header">Create</h2>
 
-<form id="frm-create-payment-requisition" method="post">
+<form id="frm-create-payment-requisition" method="post" enctype="multipart/form-data">
     @Html.AntiForgeryToken()
-    <div class="row">
-        <!-- DepartmentId -->
-        <div class="col-md-6">
-            <label for="DepartmentId">Department</label><br />
-            <input name="DepartmentId" type="hidden" value="@Html.DisplayFor(model => model.DepartmentId)" />
+    <br>
+    <!-- User Details -->
+    <fieldset>
+        <legend>User Detail</legend>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="Name">Name</label><br />
+                <input name="Names" type="text" value="@ViewBag.FirstName, @ViewBag.Surname" readonly />
+            </div>
 
-            <select name="DepartmentDisplay" id="DepartmentDisplay">
-                <option value="1">Accounting and Financial</option>
-                <option value="0">-- Add New Department --</option>
-            </select>
+            <div class="col-md-6">
+                <label for="Email">Email</label><br />
+                <input name="Email" type="text" value="@ViewBag.Email" readonly />
+            </div>
+        </div>
+    </fieldset>
+    <br>
+    <!--Invoice Details -->
+    <fieldset>
+        <legend>Invoice Details</legend>
+        <div class="row">
+            <!-- DepartmentId -->
+            <div class="col-md-6">
+                <label for="DepartmentId">Department</label><br />
+                <input name="DepartmentId" type="hidden" value="@Html.DisplayFor(model => model.DepartmentId)" />
+
+                <select name="DepartmentDisplay" id="DepartmentDisplay">
+                    <option value="1">Accounting and Financial</option>
+                    <option value="2">Human Resources</option>
+                    <option value="3">Marketing</option>
+                    <option value="0">-- Add New Department --</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <!-- DateOfInvoice -->
+                <label for="DateOfInvoice">Date Of Invoice</label><br />
+                <input name="DateOfInvoice" class="datepicker" type="text" /><br />
+            </div>
         </div>
 
-        <div class="col-md-6">
-            <!-- DateOfInvoice -->
-            <label for="DateOfInvoice">Date Of Invoice</label><br />
-            <input name="DateOfInvoice" class="datepicker" type="text" /><br />
+        <div class="row">
+            <!-- Description -->
+            <div class="col-md-12">
+                <label for="Description">Description</label>
+                <textarea name="Description" rows="4" cols="50" maxlength="200"></textarea>
+            </div>
         </div>
-    </div>
+    </fieldset>
+    <br>
+    <!-- Bank Detail -->
+    <fieldset>
+        <legend>Bank Detail</legend>
+        <!-- AccountHolder -->
+        <label for="BankDetails.AccountHolder">AccountHolder</label><br />
+        <input name="BankDetails.AccountHolder" type="text" /><br />
 
-    <div class="row">
-        <!-- Description -->
-        <div class="col-md-12">
-            <label for="Description">Description</label>
-            <textarea name="Description" rows="4" cols="50" maxlength="200"></textarea>
-        </div>
-    </div>
+        <!-- Bank -->
+        <label for="BankDetails.Bank">Bank</label><br />
+        <select name="BankDetails.Bank" id="Bank">
+            <option value="Absa">Absa</option>
+            <option value="FNB">FNB</option>
+        </select><br />
 
+        <!-- BranchCode -->
+        <label for="BankDetails.BranchCode">BranchCode</label><br />
+        <input name="BankDetails.BranchCode" type="text" /><br />
 
-    <!-- AccountHolder -->
-    <label for="BankDetails.AccountHolder">AccountHolder</label><br />
-    <input name="BankDetails.AccountHolder" type="text" /><br />
-
-    <!-- Bank -->
-    <label for="Bank">Bank</label><br />
-    <select name="Bank" id="Bank">
-        <option value="Absa">Absa</option>
-        <option value="FNB">FNB</option>
-    </select><br />
-
-    <!-- BranchCode -->
-    <label for="BranchCode">BranchCode</label><br />
-    <input name="BranchCode" type="text" /><br />
-
-    <!-- BranchCode -->
-    <label for="Attachment">Attachment</label><br />
-    <input name="Attachment.Url" id="Attachment" class="form-control" type="file" />
-
+        <!-- Attachment -->
+        <label for="Attachment.Url">Attachment</label><br />
+        <input name="Attachment.Url" id="Attachment" class="form-control" type="file" />
+    </fieldset>
     <!-- Button -->
+    <br>
     <button type="submit" value="Submit">Create</button>
 </form>
 

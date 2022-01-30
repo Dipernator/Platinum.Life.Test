@@ -68,6 +68,5 @@ namespace Platinum.Life.Services
             }
             return manager;
         }
-
     }
 }

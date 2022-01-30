@@ -15,6 +15,15 @@ input[type=text], input[type=file], input[type=email], input[type=tel], input[ty
     margin: 0 0 20px 0;
 }
 
+.my-header {
+    background-color: #a7a9ac4a;
+    color: black;
+    text-align: center;
+    font-size: 33px;
+    padding: 10px 0 10px 0 !important;
+}
+
+
  .u-section-1 {
   /*background-image: linear-gradient(to right, #aed3f6, white);*/
 }

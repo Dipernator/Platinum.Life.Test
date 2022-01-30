@@ -49,6 +49,6 @@ F:\TEST\PlatinumLife\Platinum.Life.Services\bin\Debug\Newtonsoft.Json.xml
 F:\TEST\PlatinumLife\Platinum.Life.Services\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 F:\TEST\PlatinumLife\Platinum.Life.Services\obj\Debug\Platinum.Life.Services.csproj.AssemblyReference.cache
 F:\TEST\PlatinumLife\Platinum.Life.Services\obj\Debug\Platinum.Life.Services.csproj.CoreCompileInputs.cache
-F:\TEST\PlatinumLife\Platinum.Life.Services\obj\Debug\Platinum.Life.Services.csproj.CopyComplete
 F:\TEST\PlatinumLife\Platinum.Life.Services\obj\Debug\Platinum.Life.Services.dll
 F:\TEST\PlatinumLife\Platinum.Life.Services\obj\Debug\Platinum.Life.Services.pdb
+F:\TEST\PlatinumLife\Platinum.Life.Services\obj\Debug\Platinum.Life.Services.csproj.CopyComplete

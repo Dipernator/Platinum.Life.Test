@@ -26,6 +26,7 @@ F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.Migrations.
 F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.Migrations.MoveAtt.resources
 F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.csproj.GenerateResource.cache
 F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.csproj.CoreCompileInputs.cache
-F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.csproj.CopyComplete
 F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.dll
 F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.pdb
+F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.Migrations.Attchmentagain.resources
+F:\TEST\PlatinumLife\Platinum.Life.Data\obj\Debug\Platinum.Life.Data.csproj.CopyComplete

@@ -3,17 +3,56 @@
     ViewBag.Title = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Home</h2>
-
-<div class="row">
-    <div class="col-md-4" style="width: 30%; height: 30%; color: wheat; min-height: 100px; background-color: black ">
-        Pending Sig
-    </div>
-    <div class="col-md-4" style="width: 30%; height: 30%; color: wheat; min-height: 100px; background-color: black ">
-        sadasd
-    </div>
-    <div class="col-md-4" style="width: 30%; height: 30%; color: wheat; min-height: 100px; background-color: black ">
-        sadasd
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css">
+<link href="~/Content/bootstrap-steps.min.css" rel="stylesheet" />
+<div class="container my-5">
+    <h2 class="text-center">Payment Requisitions</h2>
+    <div class="my-5">
+        <div class="mb-3">
+            <ul class="steps">
+                <li class="step step-success">
+                    <div class="step-content">
+                        <span class="step-circle">@ViewBag.TotalNew</span>
+                        <span class="step-text">
+                            <a  href="@Url.Action("List", "PaymentRequisition")">New</a>
+                        </span>
+                    </div>
+                </li>
+                <li class="step step-active">
+                    <div class="step-content">
+                        <span class="step-circle">@ViewBag.TotalPendingSignature</span>
+                        <a href="@Url.Action("List", "PaymentRequisition")">Pending <br>Signature</a>
+                    </div>
+                </li>
+                <li class="step">
+                    <div class="step-content">
+                        <span class="step-circle">@ViewBag.TotalApproved</span>
+                        <a href="@Url.Action("List", "PaymentRequisition")">Approved</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
+
+
+@*<div class="row">
+    <div class="col-md-3" style="color: wheat; background-color: black; text-align:center">
+        Total Approved  <br>@ViewBag.TotalApproved
+    </div>
+    <div class="col-md-3" style="color: wheat; background-color: black; text-align:center">
+        Total Declined <br> @ViewBag.TotalDeclined
+    </div>
+    <div class="col-md-3" style="color: wheat; background-color: black; text-align: center ">
+        Total New<br> @ViewBag.TotalNew
+    </div>
+    <div class="col-md-3" style="color: wheat; background-color: black; text-align: center ">
+        Total TotalPendingSignature <br> @ViewBag.TotalPendingSignature
+    </div>
+</div>*@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/fontawesome.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/brands.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>

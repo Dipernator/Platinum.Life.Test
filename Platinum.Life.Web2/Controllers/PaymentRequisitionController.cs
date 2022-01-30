@@ -51,14 +51,20 @@ namespace Platinum.Life.Web2.Controllers
 
 
         // GET: PaymentRequisition
+        [HttpGet]
+        [Authorize]
         public ActionResult Index()
         {
-            PaymentRequisitionService.Instance.GetAll();
+            ViewBag.TotalApproved = PaymentRequisitionService.Instance.GetByStatus(PaymentRequisitionStatus.Approved).Entity.Count();
+            ViewBag.TotalDeclined = PaymentRequisitionService.Instance.GetByStatus(PaymentRequisitionStatus.Declined).Entity.Count();
+            ViewBag.TotalNew = PaymentRequisitionService.Instance.GetByStatus(PaymentRequisitionStatus.New).Entity.Count();
+            ViewBag.TotalPendingSignature = PaymentRequisitionService.Instance.GetByStatus(PaymentRequisitionStatus.PendingSignature).Entity.Count();
 
             return View();
         }
 
         // Get Payment Requisitions of logged in user
+        [HttpGet]
         [Authorize]
         public ActionResult List()
         {
@@ -90,9 +96,16 @@ namespace Platinum.Life.Web2.Controllers
             }
         }
 
-
+        [HttpGet]
+        [Authorize]
         public ActionResult Create()
         {
+            string userId = User.Identity.Name;
+            var user = UserManager.Users.Where(m => m.UserName == userId).FirstOrDefault();
+            ViewBag.FirstName =  user.FirstName;
+            ViewBag.Surname = user.Surname;
+            ViewBag.Email = user.Email;
+
             return View(new PaymentRequisition());
         }
 
@@ -103,6 +116,7 @@ namespace Platinum.Life.Web2.Controllers
         {
             try
             {
+                string FileName = System.IO.Path.GetFileNameWithoutExtension(model.Attachment.Url);
                 Response<int> createOrUpdatePaymentRequisitionResult = new Response<int>();
                 model.UserId = User.Identity.GetUserId();
                 // Update
@@ -125,7 +139,7 @@ namespace Platinum.Life.Web2.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         [Authorize]
         public ActionResult Details(int id)
         {
@@ -147,17 +161,23 @@ namespace Platinum.Life.Web2.Controllers
             }
         }
 
+        [HttpGet]
+        [Authorize(Roles = "Amin")]
         public ActionResult SignOff()
         {
             return View();
         }
 
+        [HttpGet]
+        [Authorize]
         public ActionResult PrintViewToPdf()
         {
             var report = new Rotativa.ActionAsPdf("Index");
             return report;
         }
 
+        [HttpPost]
+        [Authorize]
         public ActionResult PrintPartialViewToPdf(int paymentRequisitionId)
         {
             try
@@ -171,7 +191,7 @@ namespace Platinum.Life.Web2.Controllers
                 Response<PaymentRequisition> paymentRequisition = PaymentRequisitionService.Instance.UpdateStatus(User.Identity.GetUserId(), paymentRequisitionId, PaymentRequisitionStatus.Approved);
 
                 User user = UserManager.FindById(paymentRequisition.Entity.UserId);
-               
+
                 // Sent Email you user that the payment requisition has been Approved
                 CommunicationsService.Instance.SentEmail(new Email()
                 {

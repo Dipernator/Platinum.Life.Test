@@ -40,7 +40,8 @@ namespace Platinum.Life.Services
             try
             {
                 Data.DbContext context = new Data.DbContext();
-
+                // Default Payment requisition status to new
+                model.StatusId = (int)PaymentRequisitionStatus.New;
                 model.Signature = new Signature();
                 context.PaymentRequisition.Add(model);
 
