@@ -11,6 +11,7 @@ F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\EntityFramework.SqlServer.
 F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 F:\TEST\PlatinumLife\Platinum.Life.Entities\bin\Debug\Newtonsoft.Json.xml
+F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.csproj.AssemblyReference.cache
 F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.csproj.CoreCompileInputs.cache
 F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.csproj.CopyComplete
 F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.dll

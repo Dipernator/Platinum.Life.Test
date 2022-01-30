@@ -17,18 +17,25 @@ namespace Platinum.Life.Web2
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+                    "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                    "~/Scripts/bootstrap.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/nicepage").Include(
+                    "~/Content/Nicepage/nicepage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/platinumlife").Include(
-                 "~/Scripts/PlatinumLife/common.js",
-                "~/Scripts/PlatinumLife/script.js"));
+                    "~/Scripts/PlatinumLife/common.js",
+                    "~/Scripts/PlatinumLife/script.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.css"));
+            //"~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/nicepage").Include(
+                    "~/Content/Nicepage/nicepage.css",
+                    "~/Content/Nicepage/Home.css"));
         }
     }
 }
