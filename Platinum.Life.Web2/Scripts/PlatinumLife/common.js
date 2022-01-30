@@ -1,11 +1,19 @@
-﻿
+﻿$(function () {
+    $(".datepicker").datepicker({ dateFormat: 'dd-mm-yy' });
+});
+
 function ProtocolAndHost(){
     return window.location.protocol + '//' + window.location.host;
 }
 
 // Notification Error
 function NotificationError(message) {
-    alert("Error " + message);
+    alert("Error NotificationError" + message);
+    $.notify(
+        message,
+        "error",
+        { position: "center" }
+    );
 }
 
 // Notification Success

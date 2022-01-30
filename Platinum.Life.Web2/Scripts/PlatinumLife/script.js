@@ -50,10 +50,11 @@ function SubmitLoginForm() {
                 NotificationError(response.message);             
             }
             else {
-                window.location.href = ProtocolAndHost() + "/Home/Index";
+                window.location.href = ProtocolAndHost() + "/PaymentRequisition/Index";
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {
             alert("Error check console")
+            NotificationError(jqXHR);
             console.log(jqXHR);
             console.log("textStatus:" + textStatus);
             console.log("errorThrown:" + errorThrown);
@@ -88,5 +89,51 @@ function SubmitPaymentRequisitionForm() {
         NotificationError(err)
     }
 }
+
+$(document).ready(function () {
+
+    $("#div-login").hover(
+        () => { //hover
+            $(this).addClass("hover");
+            $("#div-register").animate({
+                opacity: 0.25,
+            }, 1, function () {
+                // Animation complete.
+            });
+            $("#div-login").animate({
+                opacity: 1,
+            }, 1, function () {
+                // Animation complete.
+            });
+        },
+        () => { //out
+            $(this).removeClass("hover");
+           
+
+        }
+    );
+
+    $("#div-register").hover(
+        () => { //hover
+            $(this).addClass("hover");
+            $("#div-login").animate({
+                opacity: 0.25,
+            }, 1, function () {
+                // Animation complete.
+            });
+            $("#div-register").animate({
+                opacity: 1,
+            }, 1, function () {
+                // Animation complete.
+            });
+        },
+        () => { //out
+            $(this).removeClass("hover");
+            
+
+        }
+    );
+});
+
 
 

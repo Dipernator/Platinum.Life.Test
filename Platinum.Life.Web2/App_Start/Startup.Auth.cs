@@ -28,7 +28,7 @@ namespace Platinum.Life.Web2
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/User/Login"),
+                LoginPath = new PathString("/Home/Index"),
                 Provider = new CookieAuthenticationProvider
                 {
                     // Enables the application to validate the security stamp when the user logs in.

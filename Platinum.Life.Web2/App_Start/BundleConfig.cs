@@ -23,7 +23,8 @@ namespace Platinum.Life.Web2
                     "~/Scripts/bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/nicepage").Include(
-                    "~/Content/Nicepage/nicepage.js"));
+                    "~/Content/Nicepage/nicepage.js",
+                      "~/Scripts/notify.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/platinumlife").Include(
                     "~/Scripts/PlatinumLife/common.js",

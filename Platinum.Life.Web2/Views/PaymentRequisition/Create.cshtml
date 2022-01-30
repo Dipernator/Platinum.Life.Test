@@ -9,22 +9,33 @@
 
 <form id="frm-create-payment-requisition" method="post">
     @Html.AntiForgeryToken()
-    <!-- DepartmentId -->
-    <label for="DepartmentId">DepartmentId</label><br />
-    <input name="DepartmentId" type="text" /><br />
+    <div class="row">
+        <!-- DepartmentId -->
+        <div class="col-md-6">
+            <label for="DepartmentId">Department</label><br />
+            <input name="DepartmentId" type="hidden" value="@Html.DisplayFor(model => model.DepartmentId)" />
 
-    <!-- DateOfInvoice -->
-    <label for="DateOfInvoice">DateOfInvoice</label><br />
-    <input name="DateOfInvoice" type="text" /><br />
+            <select name="DepartmentDisplay" id="DepartmentDisplay">
+                <option value="1">Accounting and Financial</option>
+                <option value="0">-- Add New Department --</option>
+            </select>
+        </div>
 
-    <!-- Description -->
-    <label for="Description">Description</label><br />
-    <input name="Description" type="text" /><br />
+        <div class="col-md-6">
+            <!-- DateOfInvoice -->
+            <label for="DateOfInvoice">Date Of Invoice</label><br />
+            <input name="DateOfInvoice" class="datepicker" type="text" /><br />
+        </div>
+    </div>
 
-    <!-- BANKING DETAILS -->
-    <!-- AccountNumber -->
-    <label for="BankDetails.AccountNumber">AccountNumber</label><br />
-    <input name="BankDetails.AccountNumber" type="text" /><br />
+    <div class="row">
+        <!-- Description -->
+        <div class="col-md-12">
+            <label for="Description">Description</label>
+            <textarea name="Description" rows="4" cols="50" maxlength="200"></textarea>
+        </div>
+    </div>
+
 
     <!-- AccountHolder -->
     <label for="BankDetails.AccountHolder">AccountHolder</label><br />

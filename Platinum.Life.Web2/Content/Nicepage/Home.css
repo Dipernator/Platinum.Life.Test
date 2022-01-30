@@ -1,4 +1,4 @@
-input[type=text],input[type=file], select {
+input[type=text], input[type=file], input[type=email], input[type=tel], input[type=password], select, textarea {
     color: #111111 !important;
     background-color: #e5e5e5 !important;
     border-radius: 0 !important;
@@ -16,11 +16,11 @@ input[type=text],input[type=file], select {
 }
 
  .u-section-1 {
-  background-image: linear-gradient(to right, #aed3f6, white);
+  /*background-image: linear-gradient(to right, #aed3f6, white);*/
 }
 
 .u-section-1 .u-sheet-1 {
-  min-height: 983px;
+ /* min-height: 983px;*/
 }
 
 .u-section-1 .u-layout-wrap-1 {
@@ -70,8 +70,8 @@ input[type=text],input[type=file], select {
 }
 
 .u-section-1 .u-btn-1 {
-  border-style: none none solid;
-  padding: 0;
+  /*border-style: none none solid;
+  padding: 0;*/
 }
 
 .u-section-1 .u-btn-2 {

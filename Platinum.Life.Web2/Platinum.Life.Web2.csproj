@@ -244,6 +244,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\16-169348_user-icon-user-white-icon-transparent-clipart.png" />
+    <Content Include="Content\Images\icon-for-user-user-icon-png-white-transparent-png-kindpng.png" />
+    <Content Include="Content\Images\istockphoto-1313958250-170667a.jpg" />
+    <Content Include="Content\Images\kisspng-computer-icons-user-profile-avatar-profile-5ab9c9863999b2.7782008015221251902359.jpg" />
     <Content Include="Content\Images\platinum.life.logo.png" />
     <Content Include="Content\Nicepage\Home.css" />
     <Content Include="Content\Nicepage\nicepage.css" />
@@ -259,6 +263,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Browsers\qt.browser" />
+    <Content Include="Content\Images\Tshepang-Motloung-cv.docx" />
+    <Content Include="Content\Images\Tshepang-Motloung-cv.pdf" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -272,6 +278,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\PlatinumLife\common.js" />
+    <Content Include="Scripts\notify.min.js" />
     <Content Include="Scripts\PlatinumLife\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
