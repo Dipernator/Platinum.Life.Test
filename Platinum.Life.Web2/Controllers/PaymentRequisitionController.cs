@@ -70,7 +70,8 @@ namespace Platinum.Life.Web2.Controllers
                 {
                     paymentRequisitionResult = PaymentRequisitionService.Instance.GetAll();
                 }
-                else {
+                else
+                {
                     paymentRequisitionResult = PaymentRequisitionService.Instance.GetByUser(User.Identity.GetUserId());
                 }
 
@@ -111,7 +112,7 @@ namespace Platinum.Life.Web2.Controllers
                 }
                 // Create
                 else
-                {    
+                {
                     createOrUpdatePaymentRequisitionResult = PaymentRequisitionService.Instance.Create(model);
                 }
 
@@ -130,7 +131,6 @@ namespace Platinum.Life.Web2.Controllers
         {
             try
             {
-            
                 Response<PaymentRequisition> paymentRequisitionResult = PaymentRequisitionService.Instance.GetById(id);
                 if (!paymentRequisitionResult.Success || paymentRequisitionResult == null)
                 {
@@ -138,6 +138,51 @@ namespace Platinum.Life.Web2.Controllers
                 }
 
                 return View(paymentRequisitionResult.Entity);
+            }
+            catch (Exception ex)
+            {
+                LoggingService.Instance.LogException(ex);
+                // TODO : error page
+                return View();
+            }
+        }
+
+        public ActionResult SignOff()
+        {
+            return View();
+        }
+
+        public ActionResult PrintViewToPdf()
+        {
+            var report = new Rotativa.ActionAsPdf("Index");
+            return report;
+        }
+
+        public ActionResult PrintPartialViewToPdf(int paymentRequisitionId)
+        {
+            try
+            {
+                Response<PaymentRequisition> paymentRequisitionResult = PaymentRequisitionService.Instance.GetById(paymentRequisitionId);
+                if (!paymentRequisitionResult.Success || paymentRequisitionResult == null)
+                {
+                    return View(new Response<PaymentRequisition>());
+                }
+
+                Response<PaymentRequisition> paymentRequisition = PaymentRequisitionService.Instance.UpdateStatus(User.Identity.GetUserId(), paymentRequisitionId, PaymentRequisitionStatus.Approved);
+
+                User user = UserManager.FindById(paymentRequisition.Entity.UserId);
+               
+                // Sent Email you user that the payment requisition has been Approved
+                CommunicationsService.Instance.SentEmail(new Email()
+                {
+                    Body = $"Hi, Payment Requisition ({paymentRequisition.Entity.Id}) has been {PaymentRequisitionStatus.Approved} by {User.Identity.GetUserName()}",
+                    Subject = $"Payment Requisition",
+                    To = user.Email
+                });
+
+                Rotativa.PartialViewAsPdf report = new Rotativa.PartialViewAsPdf("~/Views/PaymentRequisition/Details.cshtml", paymentRequisition);
+
+                return report;
             }
             catch (Exception ex)
             {

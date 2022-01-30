@@ -102,7 +102,7 @@ namespace Platinum.Life.Services
                 return new Response<List<PaymentRequisition>>() { Entity = null, Message = ex.Message, Success = false };
             }
         }
-        
+
         /// <summary>
         /// Get all users payment requisitions
         /// </summary>
@@ -171,22 +171,26 @@ namespace Platinum.Life.Services
         /// 
         /// </summary>
         /// <returns></returns>
-        public Response<bool> UpdateStatus(string userId, int paymentRequisitionStatusId, PaymentRequisitionStatus status)
+        public Response<PaymentRequisition> UpdateStatus(string userId, int paymentRequisitionId, PaymentRequisitionStatus status)
         {
             try
             {
-                return new Response<bool>() { Entity = false, Message = "", Success = false };
-                //    Data.DbContext context = new Data.DbContext();
+                Data.DbContext context = new Data.DbContext();
 
-                //    PaymentRequisition result = context.PaymentRequisition.Find(paymentRequisitionStatusId);
-                //    result.StatusId = (int)status;
+                PaymentRequisition existingPaymentRequisition = context.PaymentRequisition.Find(paymentRequisitionId);
+                PaymentRequisition modifiedPaymentRequisition = existingPaymentRequisition;
+                modifiedPaymentRequisition.StatusId = (int)status;
 
-                //    return (result != null) ? new Response<List<PaymentRequisition>>() { Entity = result, Message = "", Success = true } : new Response<List<PaymentRequisition>>() { Entity = result, Message = "", Success = false };
+                context.Entry(existingPaymentRequisition).CurrentValues.SetValues(modifiedPaymentRequisition);
+
+                int result = context.SaveChanges();
+
+                return (result < 1) ? new Response<PaymentRequisition>() { Entity = existingPaymentRequisition, Message = "", Success = false } : new Response<PaymentRequisition>() { Entity = modifiedPaymentRequisition, Message = "", Success = true };
             }
             catch (Exception ex)
             {
                 LoggingService.Instance.LogException(ex);
-                return new Response<bool>() { Entity = false, Message = ex.Message, Success = false };
+                return new Response<PaymentRequisition>() { Entity = new PaymentRequisition(), Message = ex.Message, Success = false };
             }
         }
     }

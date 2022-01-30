@@ -55,11 +55,11 @@ namespace Platinum.Life.Web2.Controllers
         public ActionResult Index()
         {
             // Check user role
-            var q = User.Identity.IsAuthenticated;
-            var s = User.IsInRole("Admin");
-            var a = User.Identity.GetUserId();
+            //var q = User.Identity.IsAuthenticated;
+            //var s = User.IsInRole("Admin");
+            //var a = User.Identity.GetUserId();
 
-            if (User.IsInRole("Admin1")) {
+            if (User.IsInRole("Admin")) {
                 return View();
             }
             return RedirectToAction("Index", "PaymentRequisition");
