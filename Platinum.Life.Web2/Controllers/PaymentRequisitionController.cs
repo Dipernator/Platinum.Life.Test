@@ -180,7 +180,7 @@ namespace Platinum.Life.Web2.Controllers
                     To = user.Email
                 });
 
-                Rotativa.PartialViewAsPdf report = new Rotativa.PartialViewAsPdf("~/Views/PaymentRequisition/Details.cshtml", paymentRequisition);
+                Rotativa.PartialViewAsPdf report = new Rotativa.PartialViewAsPdf("~/Views/PaymentRequisition/Details.cshtml", paymentRequisition.Entity);
 
                 return report;
             }

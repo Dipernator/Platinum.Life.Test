@@ -5,55 +5,84 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<!--<div class="u-form u-form-1">
+    <form id="frm-create-payment-requisition" method="POST" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 0;" source="custom" name="form">
+        @Html.AntiForgeryToken()-->
+<!-- PaymentRequisitionId -->
+<!--<div class="u-form-group u-form-name u-form-partition-factor-2 u-form-group-1">
+            <label for="Id" class="u-form-control-hidden u-label">Name</label>
+            <input value="@Html.DisplayFor(model => model.Id)" type="text" placeholder="Id" id="Id" name="Id" class="u-grey-10 u-input u-input-rectangle" required="">
+        </div>
+        <div class="u-align-center u-form-group u-form-submit u-form-group-5">
+            <a href="#" class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1">Sign Up</a>
+            <input type="submit" value="submit" class="u-form-control-hidden">
+        </div>
+        <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+        <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+        <input type="hidden" value="" name="recaptchaResponse">
 
-<form id="frm-create-payment-requisition" method="post">
-    @Html.AntiForgeryToken()
-    <!-- Id -->
-    <label for="Id">Id</label><br />
-    <input name="Id" type="hidden" value="@Html.DisplayFor(model => model.Id)" /><br />
+    </form>
+</div>-->
 
-    <!-- DepartmentId -->
-    <label for="DepartmentId">DepartmentId</label><br />
-    <input name="DepartmentId" type="text" value="@Html.DisplayFor(model => model.DepartmentId)" /><br />
+<div class="u-form u-form-1">
+    <h1>Payment Requisition</h1>
+    <form id="frm-create-payment-requisition" method="POST" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 0;" source="custom" name="form">
+        @Html.AntiForgeryToken()
+        <!-- Id -->
+        <input name="Id" type="hidden" value="@Html.DisplayFor(model => model.Id)" /><br />
 
-    <!-- DateOfInvoice -->
-    <label for="DateOfInvoice">DateOfInvoice</label><br />
-    <input name="DateOfInvoice" type="text" value="@Html.DisplayFor(model => model.DateOfInvoice)" /><br />
+        <!-- DepartmentId -->
+        <label for="DepartmentId">Department</label><br />
+        <input name="DepartmentId" type="text" value="@Html.DisplayFor(model => model.DepartmentId)" />
 
-    <!-- Description -->
-    <label for="Description">Description</label><br />
-    <input name="Description" type="text" value="@Html.DisplayFor(model => model.Description)" /><br />
+        <!-- DateOfInvoice -->
+        <label for="DateOfInvoice">Date Of Invoice</label><br />
+        <input name="DateOfInvoice" type="text" value="@Html.DisplayFor(model => model.DateOfInvoice)" />
 
-    <!-- BANKING DETAILS -->
-    <!-- AccountNumber -->
-    <input name="BankDetails.Id" type="hidden" value="@Html.DisplayFor(model => model.BankDetails.Id)" /><br />
+        <!-- Description -->
+        <label for="Description">Description</label><br />
+        <input name="Description" type="text" value="@Html.DisplayFor(model => model.Description)" /><br />
 
-    <label for="BankDetails.AccountNumber">AccountNumber</label><br />
-    <input name="BankDetails.AccountNumber" type="text" value="@Html.DisplayFor(model => model.BankDetails.AccountNumber)" /><br />
+        <!--  BANKING DETAILS -->
+        @*<div>*@
+        <!-- Bank Id -->
+        <input name="BankDetails.Id" type="hidden" value="@Html.DisplayFor(model => model.BankDetails.Id)" /><br />
 
-    <!-- AccountHolder -->
-    <label for="BankDetails.AccountHolder">AccountHolder</label><br />
-    <input name="BankDetails.AccountHolder" type="text" value="@Html.DisplayFor(model => model.BankDetails.AccountHolder)" /><br />
+        <!-- AccountHolder -->
+        <label for="BankDetails.AccountNumber">Account Number</label><br />
+        <input name="BankDetails.AccountNumber" type="text" value="@Html.DisplayFor(model => model.BankDetails.AccountNumber)" /><br />
 
-    <!-- Bank -->
-    <label for="BranchCode.Bank">Bank</label><br />
-    <select name="BranchCode.Bank" id="Bank">
-        <option value="Absa">Absa</option>
-        <option value="FNB">FNB</option>
-    </select><br />
+        <!-- AccountHolder -->
+        <label for="BankDetails.AccountHolder">Account Holder</label><br />
+        <input name="BankDetails.AccountHolder" type="text" value="@Html.DisplayFor(model => model.BankDetails.AccountHolder)" /><br />
 
-    <!-- BranchCode -->
-    <label for="BranchCode">BranchCode</label><br />
-    <input name="BankDetails.BranchCode" type="text" value="@Html.DisplayFor(model => model.BankDetails.BranchCode)" /><br />
+        <!-- Bank Name -->
+        <label for="BankDetails.Bank">Bank</label><br />
+        <select name="BankDetails.Bank" id="Bank">
+            <option value="Absa">Absa</option>
+            <option value="FNB">FNB</option>
+            <option value="Capitec">Capitec</option>
+            <option value="FNB">Nedbank</option>
+        </select><br />
 
-    <!-- BranchCode -->
-    <label for="Attachment">Attachment</label><br />
-    <input name="Attachment.Url" id="Attachment" class="form-control" type="file" />
+        <!-- BranchCode -->
+        <label for="BranchCode">Branch Code</label><br />
+        <input name="BankDetails.BranchCode" type="text" value="@Html.DisplayFor(model => model.BankDetails.BranchCode)" /><br />
 
-    <!-- Button -->
-    <button type="submit" value="Submit">Create</button>
-</form>
+        <!-- Attachment -->
+        <label for="Attachment">Attachment</label><br />
+        <input name="Attachment.Url" id="Attachment" class="form-control" type="file" />
+        @*</div>*@
+
+        <!-- Button -->
+        <div class="u-align-center u-form-group u-form-submit u-form-group-5">
+            <a href="#" class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1">Sign Up</a>
+            <input type="submit" value="submit" class="u-form-control-hidden">
+        </div>
+        @*<div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+        <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>*@
+    </form>
+</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")

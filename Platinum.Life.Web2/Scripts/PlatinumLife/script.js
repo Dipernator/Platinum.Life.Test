@@ -76,7 +76,7 @@ function SubmitPaymentRequisitionForm() {
                 NotificationError(response.message)
             }
             else {
-                window.location.href = ProtocolAndHost() + "/Home/Index";
+                window.location.href = ProtocolAndHost() + "/PaymentRequisition/List";
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {
             alert("Error check console")

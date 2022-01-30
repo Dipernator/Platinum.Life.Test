@@ -150,6 +150,6 @@ F:\TEST\PlatinumLife\Platinum.Life.Web2\bin\Microsoft.Owin.Security.OAuth.xml
 F:\TEST\PlatinumLife\Platinum.Life.Web2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 F:\TEST\PlatinumLife\Platinum.Life.Web2\obj\Debug\Platinum.Life.Web2.csproj.AssemblyReference.cache
 F:\TEST\PlatinumLife\Platinum.Life.Web2\obj\Debug\Platinum.Life.Web2.csproj.CoreCompileInputs.cache
-F:\TEST\PlatinumLife\Platinum.Life.Web2\obj\Debug\Platinum.Life.Web2.csproj.CopyComplete
 F:\TEST\PlatinumLife\Platinum.Life.Web2\obj\Debug\Platinum.Life.Web2.dll
 F:\TEST\PlatinumLife\Platinum.Life.Web2\obj\Debug\Platinum.Life.Web2.pdb
+F:\TEST\PlatinumLife\Platinum.Life.Web2\obj\Debug\Platinum.Life.Web2.csproj.CopyComplete

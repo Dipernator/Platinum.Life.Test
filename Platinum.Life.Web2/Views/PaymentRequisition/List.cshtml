@@ -5,71 +5,134 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>List</h2>
+@*<section class="u-align-center u-clearfix u-section-2" id="sec-be62">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+            <table class="u-table-entity u-table-entity-1">
+                <colgroup>
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Savings</th>
+                    </tr>
+                </thead>
+                <tbody class="u-table-alt-palette-1-light-3 u-table-body">
+                    <tr style="height: 65px;">
+                        <td class="u-table-cell">Column 1 </td>
+                        <td class="u-table-cell">Column 2 </td>
+                        <td class="u-table-cell">Column 3 </td>
+                        <td class="u-table-cell">Column 4 </td>
+                    </tr>
+                    <tr style="height: 65px;">
+                        <td class="u-table-cell">Row 1</td>
+                        <td class="u-table-cell">Description</td>
+                        <td class="u-table-cell">Description</td>
+                        <td class="u-table-cell">Description</td>
+                    </tr>
+                    <tr style="height: 65px;">
+                        <td class="u-table-cell">Row 2</td>
+                        <td class="u-table-cell">Description</td>
+                        <td class="u-table-cell">Description</td>
+                        <td class="u-table-cell">Description</td>
+                    </tr>
+                    <tr style="height: 65px;">
+                        <td class="u-table-cell">Row 3</td>
+                        <td class="u-table-cell">Description</td>
+                        <td class="u-table-cell">Description</td>
+                        <td class="u-table-cell">Description</td>
+                    </tr>
+                    <tr style="height: 65px;">
+                        <td class="u-table-cell">Row 4</td>
+                        <td class="u-table-cell">Description</td>
+                        <td class="u-table-cell">Description</td>
+                        <td class="u-table-cell">Description</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>*@
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartmentId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfInvoice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreateDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StatusId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreateDateTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedDateTime)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartmentId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfInvoice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatusId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedDateTime)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+<section class="u-align-center u-clearfix u-section-2" id="sec-be62">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+            <table class="u-table-entity u-table-entity-1">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DepartmentId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DateOfInvoice)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreateDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StatusId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreateDateTime)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ModifiedDateTime)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="u-table-alt-palette-1-light-3 u-table-body">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DepartmentId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateOfInvoice)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreateDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StatusId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreateDateTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ModifiedDateTime)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
 
-                @if (User.IsInRole("Admin"))
-                {
-                    <span>@Html.ActionLink("Delete", "Delete", new { id = item.Id }) |</span>
-                    <span>@Html.ActionLink("Sign Off", "Details", new { id = item.Id })</span>
-                }
-            </td>
-        </tr>
-    }
-</table>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <span>@Html.ActionLink("Delete", "Delete", new { id = item.Id }) |</span>
+                                    <span>@Html.ActionLink("Sign Off", "Details", new { id = item.Id })</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
