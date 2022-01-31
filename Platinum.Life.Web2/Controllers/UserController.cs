@@ -93,7 +93,6 @@ namespace Platinum.Life.Web2.Controllers
                 {
                     return Json(new { success = false, entity = "", message = "Password mismatch" });
                 }
-
                 User user = new User { FirstName = model.FirstName, Surname = model.Surname, UserName = model.Email, Email = model.Email };
                 IdentityResult createUserResult = await UserManager.CreateAsync(user, model.Password);
 
