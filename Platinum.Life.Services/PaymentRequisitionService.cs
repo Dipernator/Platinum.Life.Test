@@ -42,12 +42,15 @@ namespace Platinum.Life.Services
                 Data.DbContext context = new Data.DbContext();
                 // Default Payment requisition status to new
                 model.StatusId = (int)PaymentRequisitionStatus.New;
-                model.Signature = new Signature();
+                //model.Signature = new Signature();
+                //model.DepartmentId = 1;
+                //model.Attachment = new Attachment();
+                //model.DateOfInvoice = DateTime.Now;
                 context.PaymentRequisition.Add(model);
 
                 int result = context.SaveChanges();
 
-                return (result < 1) ? new Response<int>() { Entity = result, Message = "", Success = false } : new Response<int>() { Entity = result, Message = "", Success = true };
+                return (result < 1) ? new Response<int>() { Entity = model.Id, Message = "", Success = false } : new Response<int>() { Entity = model.Id, Message = "", Success = true };
             }
             catch (Exception ex)
             {
@@ -192,6 +195,67 @@ namespace Platinum.Life.Services
             {
                 LoggingService.Instance.LogException(ex);
                 return new Response<PaymentRequisition>() { Entity = new PaymentRequisition(), Message = ex.Message, Success = false };
+            }
+        }
+
+        /// <summary>
+        /// Create attachment
+        /// </summary>
+        /// <param name="Attachment"></param>
+        /// <returns></returns>
+        public Response<int> CreateAttachment(Attachment model)
+        {
+            try
+            {
+                Data.DbContext context = new Data.DbContext();
+
+                PaymentRequisition existingPaymentRequisition = context.PaymentRequisition.Find(model.PaymentRequisitionId);
+                int result = 0;
+                if (existingPaymentRequisition != null) {
+                    PaymentRequisition newPaymentRequisition = existingPaymentRequisition;
+                    newPaymentRequisition.Attachment = model;
+                    context.Entry(existingPaymentRequisition).CurrentValues.SetValues(newPaymentRequisition);
+
+                    result  = context.SaveChanges();
+                }
+
+                return (result < 1) ? new Response<int>() { Entity = result, Message = "", Success = false } : new Response<int>() { Entity = result, Message = "", Success = true };
+            }
+            catch (Exception ex)
+            {
+                LoggingService.Instance.LogException(ex);
+                return new Response<int>() { Entity = -1, Message = ex.Message, Success = false };
+            }
+        }
+
+        /// <summary>
+        /// Create attachment
+        /// </summary>
+        /// <param name="Signature"></param>
+        /// <returns></returns>
+        public Response<int> CreateSignature(Signature model)
+        {
+            try
+            {
+                Data.DbContext context = new Data.DbContext();
+
+                PaymentRequisition existingPaymentRequisition = context.PaymentRequisition.Find(model.PaymentRequisitionId);
+                int result = 0;
+                if (existingPaymentRequisition != null)
+                {
+                    PaymentRequisition newPaymentRequisition = existingPaymentRequisition;
+                    newPaymentRequisition.Signature = model;
+                    context.Entry(existingPaymentRequisition).CurrentValues.SetValues(newPaymentRequisition);
+
+                    result = context.SaveChanges();
+                }
+
+                return (result < 1) ? new Response<int>() { Entity = result, Message = "", Success = false } : new Response<int>() { Entity = result, Message = "", Success = true };
+            }
+            catch (Exception ex)
+            {
+                LoggingService.Instance.LogException(ex);
+                return new Response<int>() { Entity = -1, Message = ex.Message, Success = false };
             }
         }
     }

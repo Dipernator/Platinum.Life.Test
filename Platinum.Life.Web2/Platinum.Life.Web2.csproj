@@ -229,6 +229,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaymentRequisitionController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -253,6 +254,7 @@
     <Content Include="Content\Nicepage\Home.css" />
     <Content Include="Content\Nicepage\nicepage.css" />
     <Content Include="Content\Nicepage\nicepage.js" />
+    <Content Include="Content\Vid\how.to.sign.mp4" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -281,6 +283,27 @@
     <Content Include="Scripts\PlatinumLife\common.js" />
     <Content Include="Scripts\notify.min.js" />
     <Content Include="Scripts\PlatinumLife\script.js" />
+    <Content Include="Scripts\Signature\flashcanvas.min.js" />
+    <Content Include="Scripts\Signature\jSignature.min.js" />
+    <Content Include="Scripts\Signature\modernizr.js" />
+    <Content Include="UploadedFiles\02dc931a-c397-4f24-90f8-7f5611bb8329.PNG" />
+    <Content Include="UploadedFiles\0c8915ca-dae4-49db-b7c3-a5d849407c2d.png" />
+    <Content Include="UploadedFiles\198532bd-e006-4d85-88e6-a56c25faf5c1.png" />
+    <Content Include="UploadedFiles\35791db1-70bc-41f5-96c3-8e3c00a2c4d5.png" />
+    <Content Include="UploadedFiles\434f5b25-be61-4529-bd55-8c76697231f1.png" />
+    <Content Include="UploadedFiles\59e7cb0a-eeeb-4d79-860e-12e7001f4661.png" />
+    <Content Include="UploadedFiles\6c09828d-ad75-4780-92f3-809350692217.PNG" />
+    <Content Include="UploadedFiles\6f7c8367-4092-400b-982b-74fecaa36c43.png" />
+    <Content Include="UploadedFiles\7a0305a2-20ee-4c48-9634-8e9791b8cfda.PNG" />
+    <Content Include="UploadedFiles\886872f5-b97b-455e-82f0-a8400c487005.PNG" />
+    <Content Include="UploadedFiles\9850ab75-23ab-4504-9324-f988d7f4639c.png" />
+    <Content Include="UploadedFiles\9c66557b-c2a4-4b47-a5f1-6d22b1448f45.png" />
+    <Content Include="UploadedFiles\c2d86e1a-06ea-4941-80e8-d7ef7fb8b5e3.png" />
+    <Content Include="UploadedFiles\c5dc43b3-1eb7-4f9a-94a0-99f83c8be06a.PNG" />
+    <Content Include="UploadedFiles\c979e708-1e7b-49cc-a932-e86db4d27760.png" />
+    <Content Include="UploadedFiles\d474982e-4a57-45b9-837b-5de2359bd5bc.PNG" />
+    <Content Include="UploadedFiles\f858e5f5-31d6-4b1d-80c2-4e86d39a4948.PNG" />
+    <Content Include="UploadedFiles\MCSA_Web_Applications_2017-01.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -324,9 +347,13 @@
     <Content Include="Views\PaymentRequisition\Create.cshtml" />
     <Content Include="Views\PaymentRequisition\Details.cshtml" />
     <Content Include="Views\PaymentRequisition\SignOff.cshtml" />
+    <Content Include="Views\Upload\UploadFile.cshtml" />
+    <Content Include="UploadedFiles\068479ce-077c-4733-9e8d-488918f0e6f0.pdf" />
+    <Content Include="UploadedFiles\8eae8d48-c527-4556-bc5c-51fab16960e9.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\Signature\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

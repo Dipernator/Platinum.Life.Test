@@ -10,5 +10,7 @@ namespace Platinum.Life.Web2.Models
     {
         public string StatusName { get; set; }
         public string DepartmentName { get; set; }
+        public string CreatedByName { get; set; }
+        public string CreatedByEmail { get; set; }
     }
 }

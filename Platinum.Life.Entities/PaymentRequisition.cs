@@ -1,11 +1,14 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Platinum.Life.Entities
 {
     public class PaymentRequisition : BaseEntity
     {
         public string UserId { get; set; }
+        [Required]
         public int DepartmentId { get; set; }
+        [Required]
         public DateTime DateOfInvoice { get; set; }
         public DateTime CreateDate { get; set; } = DateTime.Now;
         public string Description { get; set; }

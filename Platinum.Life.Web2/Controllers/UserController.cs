@@ -91,7 +91,7 @@ namespace Platinum.Life.Web2.Controllers
             {
                 if (model.Password != model.ConfirmPassword)
                 {
-                    return Json(new { success = false, entity = "", message = "Password missmatch" });
+                    return Json(new { success = false, entity = "", message = "Password mismatch" });
                 }
 
                 User user = new User { FirstName = model.FirstName, Surname = model.Surname, UserName = model.Email, Email = model.Email };
@@ -101,6 +101,30 @@ namespace Platinum.Life.Web2.Controllers
                 {
                     return Json(new { success = createUserResult.Succeeded, entity = createUserResult.Succeeded, message = string.Join(" ", createUserResult.Errors) }, JsonRequestBehavior.AllowGet);
                 }
+
+                if (model.IsManager)
+                {
+                    UserManager.AddToRole(user.Id, "Admin");
+                    //UserManager.
+                }
+                else
+                {
+                    UserManager.AddToRole(user.Id, "User");
+                }
+
+                SignInStatus signInStatusResult = await SignInManager.PasswordSignInAsync(model.Email, model.Password, false, shouldLockout: false);
+
+                // TODO : Clean up
+                switch (signInStatusResult)
+                {
+                    case SignInStatus.Success:
+                        return Json(new { success = true, entity = "", message = "" });
+                    case SignInStatus.Failure:
+                        return Json(new { success = false, entity = "", message = "Invalid login attempt" });
+                    default:
+                        return Json(new { success = false, entity = "", message = "Invalid login attempt" });
+                }
+
 
                 return Json(new { success = createUserResult.Succeeded, entity = createUserResult.Succeeded, message = createUserResult.Succeeded });
             }

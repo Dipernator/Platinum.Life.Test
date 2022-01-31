@@ -1,4 +1,4 @@
-input[type=text], input[type=file], input[type=email], input[type=tel], input[type=password], select, textarea {
+input[type=text], input[type=file], input[type=email], input[type=tel], input[type=password], input[type=checkbox], select, textarea {
     color: #111111 !important;
     background-color: #e5e5e5 !important;
     border-radius: 0 !important;

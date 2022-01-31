@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommunicationsService.cs" />
+    <Compile Include="SignatureService.cs" />
     <Compile Include="DepartmentService.cs" />
     <Compile Include="LoggingService.cs" />
     <Compile Include="PaymentRequisitionService.cs" />

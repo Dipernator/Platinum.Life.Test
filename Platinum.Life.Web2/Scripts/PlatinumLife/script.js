@@ -25,7 +25,8 @@ function SubmitRegisterForm() {
                 NotificationError(response.message)
             }
             else {
-                window.location.href = ProtocolAndHost() + "/Home/Index";
+                NotificationError("Success")
+                window.location.href = ProtocolAndHost() + "/PaymentRequisition/Index";
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {
             alert("Error check console")
@@ -47,9 +48,10 @@ function SubmitLoginForm() {
             data: $("#frm-login").serialize(),
         }).done(function (response) {
             if (response == null || !response.success) {
-                NotificationError(response.message);             
+                NotificationError(response.message);
             }
             else {
+                NotificationError("Success")
                 window.location.href = ProtocolAndHost() + "/PaymentRequisition/Index";
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -66,7 +68,6 @@ function SubmitLoginForm() {
 
 // Submit from to create a payment requisition
 function SubmitPaymentRequisitionForm() {
-    console.log($("#frm-create-payment-requisition").serialize());
     try {
         $.ajax({
             url: ProtocolAndHost() + '/PaymentRequisition/CreateOrUpdate',
@@ -77,7 +78,7 @@ function SubmitPaymentRequisitionForm() {
                 NotificationError(response.message)
             }
             else {
-                window.location.href = ProtocolAndHost() + "/PaymentRequisition/List";
+                window.location.href = ProtocolAndHost() + "/Upload/UploadFile/" + response.entity;
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {
             alert("Error check console")
@@ -108,7 +109,7 @@ $(document).ready(function () {
         },
         () => { //out
             $(this).removeClass("hover");
-           
+
 
         }
     );
@@ -129,10 +130,71 @@ $(document).ready(function () {
         },
         () => { //out
             $(this).removeClass("hover");
-            
+
 
         }
     );
+
+    $('#Bank').on('change', function () {
+        if (this.value == 0) {
+            $("#Bank").replaceWith("<input name='BankDetails.Bank' type='text' placeholder='Please enter new Bank'/><br />");
+        }
+    });
+
+    $('#DepartmentId').on('change', function () {
+        if (this.value == 0) {
+            $("#DepartmentId").replaceWith("<input name='DepartmentName' type='text'  placeholder='Please enter new Department'/><br />");
+        }
+    });
+
+    var $sigdiv = $("#signature").jSignature({ 'UndoButton': true })
+
+    $('#click').click(function () {
+        // Get response of type image
+        var data = $sigdiv.jSignature('getData', 'image');
+
+        // Storing in textarea
+        $('#output').val(data);
+
+        // Alter image source 
+        $('#sign_prev').attr('src', "data:" + data);
+        $('#sign_prev').show();
+
+        var formdata = new FormData();
+        formdata.append("base64image", data[1]);
+        formdata.append("userId", $("#hdnUserId").val());
+        formdata.append("paymentRequisitionId", $("#hdnPaymentRequisitionId").val());
+
+        try {
+            $.ajax({
+                url: ProtocolAndHost() + '/Upload/UploadSignature',
+                type: "POST",
+                data: formdata,
+                processData: false,
+                contentType: false
+            }).done(function () {
+                NotificationSuccess("Your Signature has been saved") // I hope :( 
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                alert("Error check console")
+                console.log(jqXHR);
+                console.log("textStatus:" + textStatus);
+                console.log("errorThrown:" + errorThrown);
+            });
+        } catch (err) {
+            NotificationError(err)
+        }
+
+
+        //$.ajax({
+        //    url: ProtocolAndHost() + '/Upload/UploadSignature',
+        //    type: "POST",
+        //    data: formdata,
+        //    processData: false,
+        //    contentType: false
+        //});
+
+      
+    });
 });
 
 

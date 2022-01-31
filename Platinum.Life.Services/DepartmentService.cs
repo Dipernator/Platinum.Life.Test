@@ -30,7 +30,12 @@ namespace Platinum.Life.Services
         }
         #endregion
 
-        public Response<int> Add(Entities.Department model)
+        /// <summary>
+        /// Create new Department
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public Response<int> Create(Entities.Department model)
         {
             try
             {
@@ -40,11 +45,38 @@ namespace Platinum.Life.Services
 
                 int result = context.SaveChanges();
 
-                return (result < 1) ? new Response<int>() { Entity = result, Message = "", Success = true } : new Response<int>() { Entity = result, Message = "", Success = false };
+                return (result < 1) ? new Response<int>() { Entity = result, Message = "", Success = false } : new Response<int>() { Entity = model.Id, Message = "", Success = true };
             }
             catch (Exception ex)
             {
+                LoggingService.Instance.LogException(ex);
                 return new Response<int>() { Entity = -1, Message = ex.Message, Success = false };
+            }
+        }
+
+        /// <summary>
+        /// Get Department by id
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public Response<Department> GetById(int id)
+        {
+            try
+            {
+                Data.DbContext context = new Data.DbContext();
+
+                Department result = context.Department.FirstOrDefault(m => m.Id == id);
+
+                if (result == null) {
+                    result = new Department();
+                }
+
+                return (result != null) ? new Response<Department>() { Entity = result, Message = "", Success = true } : new Response<Department>() { Entity = result, Message = "", Success = false };
+            }
+            catch (Exception ex)
+            {
+                LoggingService.Instance.LogException(ex);
+                return new Response<Department>() { Entity = new Department(), Message = ex.Message, Success = false };
             }
         }
     }

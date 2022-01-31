@@ -17,6 +17,8 @@ namespace Platinum.Life.Web2.Models
     public class RegisterUserModel : UserModel
     {
         public string ConfirmPassword { get; set; }
+
+        public bool IsManager { get; set; }
     }
 
     public class LoginUserModel

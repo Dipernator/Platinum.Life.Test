@@ -1,5 +1,6 @@
 ﻿$(function () {
-    $(".datepicker").datepicker({ dateFormat: 'dd-mm-yy' });
+
+    $(".datepicker").datepicker(/*{ dateFormat: 'dd-mm-yy' }*/);
 });
 
 function ProtocolAndHost(){
@@ -8,7 +9,7 @@ function ProtocolAndHost(){
 
 // Notification Error
 function NotificationError(message) {
-    alert("Error NotificationError" + message);
+   
     $.notify(
         message,
         "error",
@@ -18,7 +19,11 @@ function NotificationError(message) {
 
 // Notification Success
 function NotificationSuccess(message) {
-    alert("Success " + message);
+    $.notify(
+        message,
+        "success",
+        { position: "center" }
+    );
 }
 
 // Notification Error

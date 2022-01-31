@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="my-header">Payment Requisition Uploads</h2>
+
+@ViewBag.Message
+<!-- Supplier Invoice -->
+<fieldset>
+    <legend>Supplier Invoice</legend>
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("UploadFile", "Upload", new { id = ViewBag.Id, attachmentType = 1 }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div>
+                    @Html.TextBox("file", "", new { type = "file" }) <br />
+                    <input type="submit" value="Upload" />
+                    @ViewBag.MessageInvoice
+                </div>
+            }
+
+        </div>
+    </div>
+</fieldset>
+<!-- Proof of Payment -->
+<fieldset>
+    <legend>Proof of Payment</legend>
+    <div class="row">
+        <!-- Name -->
+        <div class="col-md-12">
+            @using (Html.BeginForm("UploadFile", "Upload", new { id = ViewBag.Id, attachmentType = 2 }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div>
+                    @Html.TextBox("file", "", new { type = "file" }) <br />
+                    <input type="submit" value="Upload" />
+                    @ViewBag.MessagePop
+                </div>
+            }
+
+        </div>
+    </div>
+</fieldset>
+
+<a href="/PaymentRequisition"Index class="Button">
+    <div class="row">
+        <h3 style="background-color: #46dc46; color: white; text-align: center; padding: 5px 0 5px 0; text-decoration: none;">Done</h3>
+    </div>
+</a>
+
+
+
+
