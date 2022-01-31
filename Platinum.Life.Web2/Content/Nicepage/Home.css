@@ -23,9 +23,18 @@ input[type=text], input[type=file], input[type=email], input[type=tel], input[ty
     padding: 10px 0 10px 0 !important;
 }
 
+#frm-login input {
+    color: black !important;
+}
 
- .u-section-1 {
-  /*background-image: linear-gradient(to right, #aed3f6, white);*/
+#frm-login input {
+    color: black !important;
+}
+
+
+
+.u-section-1 {
+    /*background-image: linear-gradient(to right, #aed3f6, white);*/
 }
 
 .u-section-1 .u-sheet-1 {

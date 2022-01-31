@@ -13,19 +13,19 @@
                             <h1 style="text-align:center">Log In </h1>
                             <hr style="color:white ;width:100px">
                             <img src="~/Content/Images/icon-for-user-user-icon-png-white-transparent-png-kindpng.png" style="width: 367px; margin: 0 0 0 36px;" />
-                            <form id="frm-login" method="POST" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 0;" source="custom" name="form">
+                            <form id="frm-login" method="POST" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 0; " source="custom" name="form">
                                 @Html.AntiForgeryToken()
                                 <!-- Email -->
                                 <label for="Email">Email</label>
-                                <input name="Email" type="email" style="color: black !important;"/>
+                                <input name="Email" type="email" required/>
                                 <!-- Password -->
                                 <label for="Password">Password</label>
-                                <input name="Password" type="password" style="color: black !important;"/>
+                                <input name="Password" type="password" required/>
 
                                 <!-- Button -->
                                 @*<input type="submit" value="submit">*@
                                 <div class="u-align-center u-form-group u-form-submit u-form-group-5">
-                                    <input type="submit" value="submit" class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1" style="background-color: #872156 !important">
+                                    <input type="submit" value="Login" class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1" style="background-color: #872156 !important">
                                     @*<a href="#" class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1" style="background-color: #872156 !important">Login</a>
                                     <input type="submit" value="submit" class="u-form-control-hidden">*@
                                 </div>
@@ -42,30 +42,30 @@
                                 @Html.AntiForgeryToken()
                                 <!-- First Name -->
                                 <label for="FirstName">First Name</label><br />
-                                <input name="FirstName" type="text" style="color: black !important;" />
+                                <input name="FirstName" type="text" required />
                                 <!-- Surname -->
                                 <label for="Surname">Surname</label><br />
-                                <input name="Surname" type="text" style="color: black !important;" />
+                                <input name="Surname" type="text" required />
                                 <!-- Email -->
                                 <label for="Email">Email</label><br />
-                                <input name="Email" type="email" style="color: black !important;" />
+                                <input name="Email" type="email" required />
                                 <!-- Manager -->
                                 <label for="IsManager"> IsManager</label><br>
-                                <select id="IsManager" name="IsManager" style="color: black !important;">
+                                <select id="IsManager" name="IsManager" required>
                                     <option value="false">No</option>
                                     <option value="true">Yes</option>
                                 </select>
                                 <!-- Password -->
                                 <label for="Password">Password</label><br />
-                                <input name="Password" type="password" style="color: black !important;" />
+                                <input name="Password" type="password" required/>
                                 <!-- Confirm Password -->
                                 <label for="ConfirmPassword">Confirm Password</label><br />
-                                <input name="ConfirmPassword" type="password" style="color: black !important;" />
+                                <input name="ConfirmPassword" type="password" required />
 
                                 <!-- Button -->
                                 @*<input type="submit" value="submit">*@
                                 <div class="u-align-center u-form-group u-form-submit u-form-group-5">
-                                    <input type="submit" value="submit"  class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1">
+                                    <input type="submit" value="Register"  class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1">
                                     @*<a href="#" class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1">Register</a>
                                     <input type="submit" value="submit" class="u-form-control-hidden">*@
                                 </div>
