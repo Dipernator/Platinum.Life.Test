@@ -104,7 +104,7 @@ namespace Platinum.Life.Web2.Controllers
 
                 if (model.IsManager)
                 {
-                    UserManager.AddToRole(user.Id, "Admin");
+                    var asd = UserManager.AddToRole(user.Id, "Admin");
                     //UserManager.
                 }
                 else
