@@ -51,6 +51,11 @@ input[type=text], input[type=file], input[type=email], input[type=tel], input[ty
     background-color: #0e3550;
 }
 
+.panel-heading {
+
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
 
 .u-section-1 {
     /*background-image: linear-gradient(to right, #aed3f6, white);*/
