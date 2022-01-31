@@ -56,12 +56,31 @@ namespace Platinum.Life.Web2.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            ViewBag.TotalApproved = PaymentRequisitionService.Instance.GetByStatus(PaymentRequisitionStatus.Approved).Entity.Count();
-            ViewBag.TotalDeclined = PaymentRequisitionService.Instance.GetByStatus(PaymentRequisitionStatus.Declined).Entity.Count();
-            ViewBag.TotalNew = PaymentRequisitionService.Instance.GetByStatus(PaymentRequisitionStatus.New).Entity.Count();
-            ViewBag.TotalPendingSignature = PaymentRequisitionService.Instance.GetByStatus(PaymentRequisitionStatus.PendingSignature).Entity.Count();
+            Bashboard dashboard = new Bashboard();
 
-            return View();
+            try
+            {
+                Response<List<PaymentRequisition>> paymentRequisitionResult = PaymentRequisitionService.Instance.GetAll();
+
+                if (!paymentRequisitionResult.Success)
+                {
+                    return View(dashboard);
+                }
+
+                // New
+                dashboard.TotalNew = paymentRequisitionResult.Entity.Where(m => m.StatusId == (int)PaymentRequisitionStatus.New).Count();
+                // Approved
+                dashboard.TotalApproved = paymentRequisitionResult.Entity.Where(m => m.StatusId == (int)PaymentRequisitionStatus.Approved).Count();
+                // Total
+                dashboard.Total = dashboard.TotalNew + dashboard.TotalApproved;
+
+                return View(dashboard);
+            }
+            catch (Exception ex)
+            {
+                LoggingService.Instance.LogException(ex);
+                return View(dashboard);
+            }
         }
 
         // Get Payment Requisitions of logged in user
@@ -215,7 +234,7 @@ namespace Platinum.Life.Web2.Controllers
                     Signature = paymentRequisitionResult.Entity.Signature,
                     StatusId = paymentRequisitionResult.Entity.StatusId,
                     UserId = paymentRequisitionResult.Entity.UserId,
-                    DepartmentName ="" // TODO fix
+                    DepartmentName = "" // TODO fix
                 };
 
                 IQueryable<User> users = UserManager.Users;
@@ -225,7 +244,8 @@ namespace Platinum.Life.Web2.Controllers
 
 
                 // TODO
-                if (paymentRequisitionViewModel.Signature != null) {
+                if (paymentRequisitionViewModel.Signature != null)
+                {
                     // if has different user signature
                     if (userId != paymentRequisitionViewModel.Signature.UserId)
                     {

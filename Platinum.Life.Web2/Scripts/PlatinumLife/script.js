@@ -92,7 +92,7 @@ function SubmitPaymentRequisitionForm() {
 }
 
 $(document).ready(function () {
-
+    // Gray out login
     $("#div-login").hover(
         () => { //hover
             $(this).addClass("hover");
@@ -114,6 +114,7 @@ $(document).ready(function () {
         }
     );
 
+    // Gray out register
     $("#div-register").hover(
         () => { //hover
             $(this).addClass("hover");
@@ -135,18 +136,21 @@ $(document).ready(function () {
         }
     );
 
+    // Change bank select
     $('#Bank').on('change', function () {
         if (this.value == 0) {
             $("#Bank").replaceWith("<input name='BankDetails.Bank' type='text' placeholder='Please enter new Bank'/><br />");
         }
     });
 
+    // Change department select
     $('#DepartmentId').on('change', function () {
         if (this.value == 0) {
             $("#DepartmentId").replaceWith("<input name='DepartmentName' type='text'  placeholder='Please enter new Department'/><br />");
         }
     });
 
+    // Signature
     var $sigdiv = $("#signature").jSignature({ 'UndoButton': true })
 
     $('#click').click(function () {
@@ -183,17 +187,6 @@ $(document).ready(function () {
         } catch (err) {
             NotificationError(err)
         }
-
-
-        //$.ajax({
-        //    url: ProtocolAndHost() + '/Upload/UploadSignature',
-        //    type: "POST",
-        //    data: formdata,
-        //    processData: false,
-        //    contentType: false
-        //});
-
-      
     });
 });
 
