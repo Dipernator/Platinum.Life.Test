@@ -38,9 +38,8 @@ namespace Platinum.Life.Web2.Controllers
                 {
                     string fileExtension = System.IO.Path.GetExtension(file.FileName);
                     string fileName = $"{Guid.NewGuid()}{fileExtension}";
-
-                    string _path = System.IO.Path.Combine(Server.MapPath("~/UploadedFiles"), fileName);
-                    file.SaveAs(_path);
+                    string filPath = System.IO.Path.Combine(Server.MapPath("~/UploadedFiles"), fileName);
+                    file.SaveAs(filPath);
 
                     Attachment attachment = new Attachment()
                     {
@@ -53,18 +52,18 @@ namespace Platinum.Life.Web2.Controllers
                 ViewBag.Id = id;
                 if (attachmentType == 1)
                 {
-                    ViewBag.MessageInvoice = "Supplier Invoice Uploaded Successfully!!";
+                    ViewBag.MessageInvoice = $"Supplier Invoice {file.FileName} Uploaded Successfully!!";
                 }
                 if (attachmentType == 2)
                 {
-                    ViewBag.MessagePop = "Proof of Payment Uploaded Successfully!!";
+                    ViewBag.MessagePop = $"Proof of Payment {file.FileName} Uploaded Successfully!!";
                 }
 
-                return View(new { id, attachmentType });
+                return View(new { id });
             }
             catch
             {
-                ViewBag.Message = "File upload failed!!";
+                ViewBag.Message = $"{file.FileName} Uploaded Failed";
                 return View(new { id, attachmentType });
             }
         }
@@ -84,9 +83,9 @@ namespace Platinum.Life.Web2.Controllers
                     image = Image.FromStream(ms);
                 }
                 string fileName = $"{Guid.NewGuid()}.png";
-                string fullPath = Path.Combine(Server.MapPath("~/UploadedFiles/Signature/"), fileName);
+                string filePath = Path.Combine(Server.MapPath("~/UploadedFiles/Signature/"), fileName);
 
-                image.Save(fullPath, System.Drawing.Imaging.ImageFormat.Png);
+                image.Save(filePath, System.Drawing.Imaging.ImageFormat.Png);
 
                 // Save Signature
                 Response<int> createSignatureResult = SignatureService.Instance.Create(new Signature()
@@ -97,7 +96,7 @@ namespace Platinum.Life.Web2.Controllers
 
                 if (createSignatureResult.Success)
                 {
-                    var asd = PaymentRequisitionService.Instance.CreateSignature(new Signature()
+                    Response<int> createPaymentSignatureResult = PaymentRequisitionService.Instance.CreateSignature(new Signature()
                     {
                         Url = fileName,
                         UserId = userId,

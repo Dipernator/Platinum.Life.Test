@@ -5,48 +5,58 @@
 
 <h2 class="my-header">Payment Requisition Uploads</h2>
 
-@ViewBag.Message
-<!-- Supplier Invoice -->
-<fieldset>
-    <legend>Supplier Invoice</legend>
-    <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("UploadFile", "Upload", new { id = ViewBag.Id, attachmentType = 1 }, FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-                <div>
-                    @Html.TextBox("file", "", new { type = "file" }) <br />
-                    <input type="submit" value="Upload" />
-                    @ViewBag.MessageInvoice
-                </div>
-            }
-
+<div class="row">
+    <!-- Supplier Invoice -->
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Supplier Invoice</div>
+            <div class="panel-body">
+                @using (Html.BeginForm("UploadFile", "Upload", new { id = ViewBag.Id, attachmentType = 1 }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div>
+                        @Html.TextBox("file", "", new { type = "file" })
+                        <input type="submit" value="Upload" />
+                    </div>
+                }
+            </div>
         </div>
     </div>
-</fieldset>
-<!-- Proof of Payment -->
-<fieldset>
-    <legend>Proof of Payment</legend>
-    <div class="row">
-        <!-- Name -->
-        <div class="col-md-12">
-            @using (Html.BeginForm("UploadFile", "Upload", new { id = ViewBag.Id, attachmentType = 2 }, FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-                <div>
-                    @Html.TextBox("file", "", new { type = "file" }) <br />
-                    <input type="submit" value="Upload" />
-                    @ViewBag.MessagePop
-                </div>
-            }
-
+    <!-- Proof of Payment -->
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Proof of Payment</div>
+            <div class="panel-body">
+                @using (Html.BeginForm("UploadFile", "Upload", new { id = ViewBag.Id, attachmentType = 2 }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div>
+                        @Html.TextBox("file", "", new { type = "file" })
+                        <input type="submit" value="Upload" />
+                    </div>
+                }
+            </div>
         </div>
     </div>
-</fieldset>
+    <!-- Proof of Payment -->
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Results</div>
+            <div class="panel-body">
+                <p>@ViewBag.MessageInvoice</p>
+                <p>@ViewBag.MessagePop</p>
+                <p>@ViewBag.Message</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-<a href="/PaymentRequisition"Index class="Button">
+
+<a href="/PaymentRequisition" Index class="Button">
     <div class="row">
         <h3 style="background-color: #46dc46; color: white; text-align: center; padding: 5px 0 5px 0; text-decoration: none;">Done</h3>
     </div>
 </a>
+
+
 
 
 

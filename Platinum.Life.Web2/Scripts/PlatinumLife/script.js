@@ -139,14 +139,14 @@ $(document).ready(function () {
     // Change bank select
     $('#Bank').on('change', function () {
         if (this.value == 0) {
-            $("#Bank").replaceWith("<input name='BankDetails.Bank' type='text' placeholder='Please enter new Bank'/><br />");
+            $("#Bank").replaceWith("<input name='BankDetails.Bank' type='text' placeholder='Please enter new Bank' required/><br />");
         }
     });
 
     // Change department select
     $('#DepartmentId').on('change', function () {
         if (this.value == 0) {
-            $("#DepartmentId").replaceWith("<input name='DepartmentName' type='text'  placeholder='Please enter new Department'/><br />");
+            $("#DepartmentId").replaceWith("<input name='DepartmentName' type='text'  placeholder='Please enter new Department' required/><br />");
         }
     });
 

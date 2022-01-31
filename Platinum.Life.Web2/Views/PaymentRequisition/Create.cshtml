@@ -9,87 +9,89 @@
 
 <form id="frm-create-payment-requisition" method="POST">
     @Html.AntiForgeryToken()
-    <br>
-    <!-- User Details -->
-    <fieldset>
-        <legend>User Detail</legend>
-        <div class="row">
-            <!-- Name -->
-            <div class="col-md-6">
-                <label for="Name">Name</label><br />
-                <input name="Names" type="text" value="@ViewBag.FirstName, @ViewBag.Surname" readonly />
+    <div class="row">
+        <div class="col-md-12">
+            <!-- User Details -->
+            <div class="panel panel-default">
+                <div class="panel-heading">User Details</div>
+                <div class="panel-body">
+                    <!-- Name -->
+                    <div class="col-md-6">
+                        <label for="Name">Name</label><br />
+                        <input name="Names" type="text" value="@ViewBag.FirstName, @ViewBag.Surname" readonly />
+                    </div>
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <label for="Email">Email</label><br />
+                        <input name="Email" type="text" value="@ViewBag.Email" readonly />
+                    </div>
+                </div>
             </div>
-            <!-- Email -->
-            <div class="col-md-6">
-                <label for="Email">Email</label><br />
-                <input name="Email" type="text" value="@ViewBag.Email" readonly />
+            <!-- Invoice Details -->
+            <div class="panel panel-default">
+                <div class="panel-heading">Invoice Details</div>
+                <div class="panel-body">
+                    <!-- DepartmentId -->
+                    <div class="col-md-6">
+                        <label for="DepartmentId">Department</label><br />
+                        <select name="DepartmentId" id="DepartmentId">
+                            <option value="1">Accounting and Financial</option>
+                            <option value="2">Human Resources</option>
+                            <option value="3">Marketing</option>
+                            <option value="0">-- Add New Department --</option>
+                        </select>
+                    </div>
+                    <!-- DateOfInvoice -->
+                    <div class="col-md-6">
+                        <label for="DateOfInvoice">Date Of Invoice</label><br />
+                        <input name="DateOfInvoice" class="datepicker" type="text" required/><br />
+                    </div>
+                    <!-- Description -->
+                    <div class="col-md-12">
+                        <label for="Description">Description</label>
+                        <textarea name="Description" rows="4" cols="50" maxlength="200"></textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- Banking Details -->
+            <div class="panel panel-default">
+                <div class="panel-heading">Banking Details</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <!-- AccountHolder -->
+                        <div class="col-md-6">
+                            <label for="BankDetails.AccountHolder">Account Holder</label><br />
+                            <input name="BankDetails.AccountHolder" type="text" required/><br />
+                        </div>
+                        <!-- AccountNumber -->
+                        <div class="col-md-6">
+                            <label for="BankDetails.AccountNumber">Account Number</label><br />
+                            <input name="BankDetails.AccountNumber" type="text" required/><br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Bank -->
+                        <div class="col-md-6">
+                            <label for="BankDetails.Bank">Bank</label><br />
+                            <select name="BankDetails.Bank" id="Bank">
+                                <option value="Absa">Absa</option>
+                                <option value="FNB">FNB</option>
+                                <option value="Capitec">Capitec</option>
+                                <option value="Nedbank">Nedbank</option>
+                                <option value="0">-- Add New Bank --</option>
+                            </select><br />
+                        </div>
+                        <!-- BranchCode -->
+                        <div class="col-md-6">
+                            <label for="BankDetails.BranchCode">BranchCode</label><br />
+                            <input name="BankDetails.BranchCode" type="text" required/><br />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </fieldset>
-    <br>
-    <!--Invoice Details -->
-    <fieldset>
-        <legend>Invoice Details</legend>
-        <div class="row">
-            <!-- DepartmentId -->
-            <div class="col-md-6">
-                <label for="DepartmentId">Department</label><br />
-                <select name="DepartmentId" id="DepartmentId">
-                    <option value="1">Accounting and Financial</option>
-                    <option value="2">Human Resources</option>
-                    <option value="3">Marketing</option>
-                    <option value="0">-- Add New Department --</option>
-                </select>
-            </div>
-            <!-- DateOfInvoice -->
-            <div class="col-md-6">
-                <label for="DateOfInvoice">Date Of Invoice</label><br />
-                <input name="DateOfInvoice" class="datepicker" type="text" /><br />
-            </div>
-        </div>
-        <div class="row">
-            <!-- Description -->
-            <div class="col-md-12">
-                <label for="Description">Description</label>
-                <textarea name="Description" rows="4" cols="50" maxlength="200"></textarea>
-            </div>
-        </div>
-    </fieldset>
-    <br>
-    <!-- Bank Detail -->
-    <fieldset>
-        <legend>Bank Detail</legend>
-        <div class="row">
-            <!-- AccountHolder -->
-            <div class="col-md-6">
-                <label for="BankDetails.AccountHolder">Account Holder</label><br />
-                <input name="BankDetails.AccountHolder" type="text" /><br />
-            </div>
-            <!-- AccountNumber -->
-            <div class="col-md-6">
-                <label for="BankDetails.AccountNumber">Account Number</label><br />
-                <input name="BankDetails.AccountNumber" type="text" /><br />
-            </div>
-        </div>
-        <div class="row">
-            <!-- Bank -->
-            <div class="col-md-6">
-                <label for="BankDetails.Bank">Bank</label><br />
-                <select name="BankDetails.Bank" id="Bank">
-                    <option value="Absa">Absa</option>
-                    <option value="FNB">FNB</option>
-                    <option value="Capitec">Capitec</option>
-                    <option value="Nedbank">Nedbank</option>
-                    <option value="0">-- Add New Bank --</option>
-                </select><br />
-            </div>
-            <!-- BranchCode -->
-            <div class="col-md-6">
-                <label for="BankDetails.BranchCode">BranchCode</label><br />
-                <input name="BankDetails.BranchCode" type="text" /><br />
-            </div>
-        </div>
-    </fieldset>
-    <br>
-    <button type="submit" value="Submit"  class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1">Create</button>
+    </div>
+
+    <button type="submit" value="Submit" class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1">Create</button>
+
 </form>

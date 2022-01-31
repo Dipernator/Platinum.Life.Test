@@ -249,10 +249,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\16-169348_user-icon-user-white-icon-transparent-clipart.png" />
     <Content Include="Content\Images\icon-for-user-user-icon-png-white-transparent-png-kindpng.png" />
+    <Content Include="Content\Images\icons8-user-90.png" />
     <Content Include="Content\Images\images.png" />
     <Content Include="Content\Images\istockphoto-1313958250-170667a.jpg" />
     <Content Include="Content\Images\kisspng-computer-icons-user-profile-avatar-profile-5ab9c9863999b2.7782008015221251902359.jpg" />
     <Content Include="Content\Images\platinum.life.logo.png" />
+    <Content Include="Content\Images\tshepang.png" />
     <Content Include="Content\Nicepage\Home.css" />
     <Content Include="Content\Nicepage\nicepage.css" />
     <Content Include="Content\Nicepage\nicepage.js" />
@@ -329,6 +331,7 @@
     <Content Include="Views\Upload\UploadFile.cshtml" />
     <Content Include="UploadedFiles\068479ce-077c-4733-9e8d-488918f0e6f0.pdf" />
     <Content Include="UploadedFiles\8eae8d48-c527-4556-bc5c-51fab16960e9.pdf" />
+    <Content Include="Views\Shared\Print.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
