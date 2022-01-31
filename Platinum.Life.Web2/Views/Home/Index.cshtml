@@ -12,21 +12,22 @@
                         <div class="u-container-layout u-valign-middle u-container-layout-2">
                             <h1 style="text-align:center">Log In </h1>
                             <hr style="color:white ;width:100px">
-                            <img src="~/Content/Images/16-169348_user-icon-user-white-icon-transparent-clipart.png" style="width: 367px; margin: 0 0 0 36px;" />
+                            <img src="~/Content/Images/icon-for-user-user-icon-png-white-transparent-png-kindpng.png" style="width: 367px; margin: 0 0 0 36px;" />
                             <form id="frm-login" method="POST" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 0;" source="custom" name="form">
                                 @Html.AntiForgeryToken()
                                 <!-- Email -->
                                 <label for="Email">Email</label>
-                                <input name="Email" type="email" />
+                                <input name="Email" type="email" style="color: black !important;"/>
                                 <!-- Password -->
                                 <label for="Password">Password</label>
-                                <input name="Password" type="password" />
+                                <input name="Password" type="password" style="color: black !important;"/>
 
                                 <!-- Button -->
-                                <input type="submit" value="submit">
+                                @*<input type="submit" value="submit">*@
                                 <div class="u-align-center u-form-group u-form-submit u-form-group-5">
-                                    <a href="#" class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1" style="background-color: #872156 !important">Login</a>
-                                    <input type="submit" value="submit" class="u-form-control-hidden">
+                                    <input type="submit" value="submit" class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1" style="background-color: #872156 !important">
+                                    @*<a href="#" class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1" style="background-color: #872156 !important">Login</a>
+                                    <input type="submit" value="submit" class="u-form-control-hidden">*@
                                 </div>
                             </form>
                         </div>
@@ -50,7 +51,7 @@
                                 <input name="Email" type="email" style="color: black !important;" />
                                 <!-- Manager -->
                                 <label for="IsManager"> IsManager</label><br>
-                                <select id="IsManager" name="IsManager">
+                                <select id="IsManager" name="IsManager" style="color: black !important;">
                                     <option value="false">No</option>
                                     <option value="true">Yes</option>
                                 </select>
@@ -62,10 +63,11 @@
                                 <input name="ConfirmPassword" type="password" style="color: black !important;" />
 
                                 <!-- Button -->
-                                <input type="submit" value="submit">
+                                @*<input type="submit" value="submit">*@
                                 <div class="u-align-center u-form-group u-form-submit u-form-group-5">
-                                    <a href="#" class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1">Register</a>
-                                    <input type="submit" value="submit" class="u-form-control-hidden">
+                                    <input type="submit" value="submit"  class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1">
+                                    @*<a href="#" class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1">Register</a>
+                                    <input type="submit" value="submit" class="u-form-control-hidden">*@
                                 </div>
                             </form>
                         </div>

@@ -152,3 +152,4 @@ F:\TEST\PlatinumLife\Platinum.Life.Web2\obj\Debug\Platinum.Life.Web2.csproj.Asse
 F:\TEST\PlatinumLife\Platinum.Life.Web2\obj\Debug\Platinum.Life.Web2.csproj.CoreCompileInputs.cache
 F:\TEST\PlatinumLife\Platinum.Life.Web2\obj\Debug\Platinum.Life.Web2.dll
 F:\TEST\PlatinumLife\Platinum.Life.Web2\obj\Debug\Platinum.Life.Web2.pdb
+F:\TEST\PlatinumLife\Platinum.Life.Web2\obj\Debug\Platinum.Life.Web2.csproj.CopyComplete

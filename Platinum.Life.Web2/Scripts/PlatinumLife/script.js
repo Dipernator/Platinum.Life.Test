@@ -25,7 +25,7 @@ function SubmitRegisterForm() {
                 NotificationError(response.message)
             }
             else {
-                NotificationError("Success")
+                NotificationSuccess("Success")
                 window.location.href = ProtocolAndHost() + "/PaymentRequisition/Index";
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -51,7 +51,7 @@ function SubmitLoginForm() {
                 NotificationError(response.message);
             }
             else {
-                NotificationError("Success")
+                NotificationSuccess("Success")
                 window.location.href = ProtocolAndHost() + "/PaymentRequisition/Index";
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {

@@ -15,4 +15,3 @@ F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.csp
 F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.csproj.CopyComplete
 F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.dll
 F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.pdb
-F:\TEST\PlatinumLife\Platinum.Life.Entities\obj\Debug\Platinum.Life.Entities.csproj.AssemblyReference.cache

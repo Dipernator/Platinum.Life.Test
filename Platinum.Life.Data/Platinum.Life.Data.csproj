@@ -61,66 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbContext.cs" />
-    <Compile Include="Migrations\202201270132235_InitialCreate.cs" />
-    <Compile Include="Migrations\202201270132235_InitialCreate.designer.cs">
-      <DependentUpon>202201270132235_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201280047315_TestMigration.cs" />
-    <Compile Include="Migrations\202201280047315_TestMigration.designer.cs">
-      <DependentUpon>202201280047315_TestMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201280150265_CreadtedDa.cs" />
-    <Compile Include="Migrations\202201280150265_CreadtedDa.designer.cs">
-      <DependentUpon>202201280150265_CreadtedDa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201280235474_Remove kak from bank.cs" />
-    <Compile Include="Migrations\202201280235474_Remove kak from bank.designer.cs">
-      <DependentUpon>202201280235474_Remove kak from bank.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201280403077_Status.cs" />
-    <Compile Include="Migrations\202201280403077_Status.designer.cs">
-      <DependentUpon>202201280403077_Status.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201291637172_AddedAttachmentToPayment.cs" />
-    <Compile Include="Migrations\202201291637172_AddedAttachmentToPayment.designer.cs">
-      <DependentUpon>202201291637172_AddedAttachmentToPayment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201291706355_RemoveMultipleAtt.cs" />
-    <Compile Include="Migrations\202201291706355_RemoveMultipleAtt.designer.cs">
-      <DependentUpon>202201291706355_RemoveMultipleAtt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201291722401_RemoveMultipleAtt1.cs" />
-    <Compile Include="Migrations\202201291722401_RemoveMultipleAtt1.designer.cs">
-      <DependentUpon>202201291722401_RemoveMultipleAtt1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201291801584_MoveAtt.cs" />
-    <Compile Include="Migrations\202201291801584_MoveAtt.designer.cs">
-      <DependentUpon>202201291801584_MoveAtt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201301706118_Attchmentagain.cs" />
-    <Compile Include="Migrations\202201301706118_Attchmentagain.designer.cs">
-      <DependentUpon>202201301706118_Attchmentagain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201301718138_HttpPostedFileBase.cs" />
-    <Compile Include="Migrations\202201301718138_HttpPostedFileBase.designer.cs">
-      <DependentUpon>202201301718138_HttpPostedFileBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201301834472_a.cs" />
-    <Compile Include="Migrations\202201301834472_a.designer.cs">
-      <DependentUpon>202201301834472_a.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201301844117_b.cs" />
-    <Compile Include="Migrations\202201301844117_b.designer.cs">
-      <DependentUpon>202201301844117_b.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201301946509_c.cs" />
-    <Compile Include="Migrations\202201301946509_c.designer.cs">
-      <DependentUpon>202201301946509_c.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201302038478_d.cs" />
-    <Compile Include="Migrations\202201302038478_d.designer.cs">
-      <DependentUpon>202201302038478_d.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202201310107393_e.cs" />
     <Compile Include="Migrations\202201310107393_e.designer.cs">
       <DependentUpon>202201310107393_e.cs</DependentUpon>
@@ -139,51 +79,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202201270132235_InitialCreate.resx">
-      <DependentUpon>202201270132235_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201280047315_TestMigration.resx">
-      <DependentUpon>202201280047315_TestMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201280150265_CreadtedDa.resx">
-      <DependentUpon>202201280150265_CreadtedDa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201280235474_Remove kak from bank.resx">
-      <DependentUpon>202201280235474_Remove kak from bank.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201280403077_Status.resx">
-      <DependentUpon>202201280403077_Status.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201291637172_AddedAttachmentToPayment.resx">
-      <DependentUpon>202201291637172_AddedAttachmentToPayment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201291706355_RemoveMultipleAtt.resx">
-      <DependentUpon>202201291706355_RemoveMultipleAtt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201291722401_RemoveMultipleAtt1.resx">
-      <DependentUpon>202201291722401_RemoveMultipleAtt1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201291801584_MoveAtt.resx">
-      <DependentUpon>202201291801584_MoveAtt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201301706118_Attchmentagain.resx">
-      <DependentUpon>202201301706118_Attchmentagain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201301718138_HttpPostedFileBase.resx">
-      <DependentUpon>202201301718138_HttpPostedFileBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201301834472_a.resx">
-      <DependentUpon>202201301834472_a.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201301844117_b.resx">
-      <DependentUpon>202201301844117_b.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201301946509_c.resx">
-      <DependentUpon>202201301946509_c.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201302038478_d.resx">
-      <DependentUpon>202201302038478_d.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201310107393_e.resx">
       <DependentUpon>202201310107393_e.cs</DependentUpon>
     </EmbeddedResource>
