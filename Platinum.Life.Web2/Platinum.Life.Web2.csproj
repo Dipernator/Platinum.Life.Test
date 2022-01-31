@@ -321,7 +321,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\PaymentRequisition\Index.cshtml" />
+    <Content Include="Views\PaymentRequisition\Bashboard.cshtml" />
     <Content Include="Views\PaymentRequisition\List.cshtml" />
     <Content Include="Views\PaymentRequisition\Create.cshtml" />
     <Content Include="Views\PaymentRequisition\Details.cshtml" />

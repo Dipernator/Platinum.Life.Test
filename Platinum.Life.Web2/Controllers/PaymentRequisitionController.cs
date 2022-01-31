@@ -54,7 +54,7 @@ namespace Platinum.Life.Web2.Controllers
         // GET: PaymentRequisition
         [HttpGet]
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Bashboard()
         {
             Bashboard dashboard = new Bashboard();
 
