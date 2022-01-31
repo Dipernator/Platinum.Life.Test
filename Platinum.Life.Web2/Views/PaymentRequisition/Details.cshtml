@@ -140,7 +140,7 @@
 <!-- Enable Sign Off if Admin/Manager user -->
 @if (User.IsInRole("Admin"))
 {
-    <a href="/PaymentRequisition/Details?paymentRequisitionId=@Model.Id" class="">
+    <a href="/PaymentRequisition/SignOff?paymentRequisitionId=@Model.Id" class="">
         <div class="u-active-grey-90 u-border-none u-btn u-btn-submit u-button-style u-hover-grey-90 u-palette-1-base u-btn-1">
             <span>Sign Off</span>
         </div>

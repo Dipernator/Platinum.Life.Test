@@ -56,13 +56,6 @@ namespace Platinum.Life.Web2.Controllers
             return View();
         }
 
-        public ActionResult LogOff()
-        {
-            var AuthenticationManager = HttpContext.GetOwinContext().Authentication;
-            AuthenticationManager.SignOut();
-            return RedirectToAction("Index");
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

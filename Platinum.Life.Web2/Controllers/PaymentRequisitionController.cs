@@ -28,6 +28,7 @@ namespace Platinum.Life.Web2.Controllers
                 _signInManager = value;
             }
         }
+
         public UserManagerService UserManager
         {
             get
@@ -51,9 +52,9 @@ namespace Platinum.Life.Web2.Controllers
         }
 
         [Authorize]
-        public ActionResult Bashboard()
+        public ActionResult Dashboard()
         {
-            Bashboard dashboard = new Bashboard();
+            Dashboard dashboard = new Dashboard();
 
             try
             {
@@ -129,7 +130,7 @@ namespace Platinum.Life.Web2.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<JsonResult> CreateOrUpdate(PaymentRequisitionViewModel model)
+        public JsonResult CreateOrUpdate(PaymentRequisitionViewModel model)
         {
             try
             {
@@ -261,67 +262,6 @@ namespace Platinum.Life.Web2.Controllers
             }
         }
 
-        public ActionResult Temp(int id)
-        {
-            try
-            {
-                Response<PaymentRequisition> paymentRequisitionResult = PaymentRequisitionService.Instance.GetById(id);
-                string userId = User.Identity.GetUserId();
-                if (!paymentRequisitionResult.Success || paymentRequisitionResult == null)
-                {
-                    return View(new PaymentRequisitionViewModel());
-                }
-
-                // Check if PaymentRequisition has been sign. 
-                if (paymentRequisitionResult.Entity.Signature == null)
-                {
-                    // Check if user have a saved Signature
-                    Response<Signature> userSignature = SignatureService.Instance.GetByUserId(userId);
-                    if (userSignature.Success)
-                    {
-                        paymentRequisitionResult.Entity.Signature = userSignature.Entity;
-                    }
-                }
-
-                PaymentRequisitionViewModel paymentRequisitionViewModel = new PaymentRequisitionViewModel()
-                {
-                    Attachment = paymentRequisitionResult.Entity.Attachment,
-                    BankDetails = paymentRequisitionResult.Entity.BankDetails,
-                    CreateDate = paymentRequisitionResult.Entity.CreateDate,
-                    CreateDateTime = paymentRequisitionResult.Entity.CreateDateTime,
-                    DateOfInvoice = paymentRequisitionResult.Entity.DateOfInvoice,
-                    DepartmentId = paymentRequisitionResult.Entity.DepartmentId,
-                    Description = paymentRequisitionResult.Entity.Description,
-                    Id = paymentRequisitionResult.Entity.Id,
-                    ModifiedDateTime = paymentRequisitionResult.Entity.ModifiedDateTime,
-                    Signature = paymentRequisitionResult.Entity.Signature,
-                    StatusId = paymentRequisitionResult.Entity.StatusId,
-                    UserId = paymentRequisitionResult.Entity.UserId,
-                    DepartmentName = DepartmentService.Instance.GetById(paymentRequisitionResult.Entity.DepartmentId).Entity.Name // TODO fix
-                };
-
-                IQueryable<User> users = UserManager.Users;
-                User user = users.Where(m => m.Id == paymentRequisitionViewModel.UserId).FirstOrDefault();
-                paymentRequisitionViewModel.CreatedByName = $"{user.FirstName}, {user.Surname}";
-                paymentRequisitionViewModel.CreatedByEmail = user.Email;
-
-                // if has different user signature
-                if (userId != paymentRequisitionViewModel.Signature.UserId)
-                {
-
-                }
-
-                ViewBag.UserId = userId;
-                return View("Details", paymentRequisitionViewModel);
-            }
-            catch (Exception ex)
-            {
-                LoggingService.Instance.LogException(ex);
-                // TODO : error page
-                return View();
-            }
-        }
-
         public ActionResult PrintViewToPdf()
         {
             var report = new Rotativa.ActionAsPdf("Print");
@@ -390,10 +330,72 @@ namespace Platinum.Life.Web2.Controllers
             }
         }
 
-        public ActionResult SignOff(PaymentRequisitionViewModel model)
+        [Authorize(Roles="Admin")]
+        public ActionResult SignOff(int paymentRequisitionId)
         {
+            try
+            {
+                Response<PaymentRequisition> paymentRequisitionResult = PaymentRequisitionService.Instance.GetById(paymentRequisitionId);
+                string userId = User.Identity.GetUserId();
+                if (!paymentRequisitionResult.Success || paymentRequisitionResult == null)
+                {
+                    return View(new PaymentRequisitionViewModel());
+                }
 
-            return View(model);
+                // Check if PaymentRequisition has been sign. 
+                if (paymentRequisitionResult.Entity.Signature == null)
+                {
+                    // Check if user have a saved Signature
+                    Response<Signature> userSignature = SignatureService.Instance.GetByUserId(userId);
+                    if (userSignature.Success)
+                    {
+                        paymentRequisitionResult.Entity.Signature = userSignature.Entity;
+                    }
+                }
+
+                PaymentRequisitionViewModel paymentRequisitionViewModel = new PaymentRequisitionViewModel()
+                {
+                    Attachment = paymentRequisitionResult.Entity.Attachment,
+                    BankDetails = paymentRequisitionResult.Entity.BankDetails,
+                    CreateDate = paymentRequisitionResult.Entity.CreateDate,
+                    CreateDateTime = paymentRequisitionResult.Entity.CreateDateTime,
+                    DateOfInvoice = paymentRequisitionResult.Entity.DateOfInvoice,
+                    DepartmentId = paymentRequisitionResult.Entity.DepartmentId,
+                    Description = paymentRequisitionResult.Entity.Description,
+                    Id = paymentRequisitionResult.Entity.Id,
+                    ModifiedDateTime = paymentRequisitionResult.Entity.ModifiedDateTime,
+                    Signature = paymentRequisitionResult.Entity.Signature,
+                    StatusId = paymentRequisitionResult.Entity.StatusId,
+                    UserId = paymentRequisitionResult.Entity.UserId,
+                    DepartmentName = DepartmentService.Instance.GetById(paymentRequisitionResult.Entity.DepartmentId).Entity.Name // TODO fix
+                };
+
+                IQueryable<User> users = UserManager.Users;
+                User user = users.Where(m => m.Id == paymentRequisitionViewModel.UserId).FirstOrDefault();
+                paymentRequisitionViewModel.CreatedByName = $"{user.FirstName}, {user.Surname}";
+                paymentRequisitionViewModel.CreatedByEmail = user.Email;
+
+                // if has different user signature
+                if (userId != paymentRequisitionViewModel.Signature.UserId)
+                {
+
+                }
+
+                //var report = new Rotativa.ActionAsPdf("Temp", new { id = paymentRequisitionId });
+                var report = new Rotativa.ActionAsPdf("Print", paymentRequisitionViewModel);
+                //Rotativa.PartialViewAsPdf report = new Rotativa.PartialViewAsPdf("~/Views/PaymentRequisition/Details.cshtml", new { });
+
+                return report;
+
+                //ViewBag.UserId = userId;
+                //return View("Details", paymentRequisitionViewModel);
+            }
+            catch (Exception ex)
+            {
+                LoggingService.Instance.LogException(ex);
+                // TODO : error page
+                return View();
+            }
         }
 
         public ActionResult Print(PaymentRequisitionViewModel model)

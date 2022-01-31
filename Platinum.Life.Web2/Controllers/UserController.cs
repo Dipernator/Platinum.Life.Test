@@ -132,5 +132,12 @@ namespace Platinum.Life.Web2.Controllers
                 return Json(new { success = false, entity = "", message = "" });
             }
         }
+
+        public ActionResult LogOff()
+        {
+            var AuthenticationManager = HttpContext.GetOwinContext().Authentication;
+            AuthenticationManager.SignOut();
+            return RedirectToAction("Index");
+        }
     }
 }

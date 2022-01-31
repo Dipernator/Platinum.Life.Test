@@ -26,7 +26,7 @@ function SubmitRegisterForm() {
             }
             else {
                 NotificationSuccess("Success")
-                window.location.href = ProtocolAndHost() + "/PaymentRequisition/Bashboard";
+                window.location.href = ProtocolAndHost() + "/PaymentRequisition/Dashboard";
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {
             alert("Error check console")
@@ -52,7 +52,7 @@ function SubmitLoginForm() {
             }
             else {
                 NotificationSuccess("Success")
-                window.location.href = ProtocolAndHost() + "/PaymentRequisition/Bashboard";
+                window.location.href = ProtocolAndHost() + "/PaymentRequisition/Dashboard";
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {
             alert("Error check console")

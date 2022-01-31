@@ -1,0 +1,40 @@
+﻿@model Platinum.Life.Web2.Models.Dashboard
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="my-header">Dashboard</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <!-- New -->
+        <a href="@Url.Action("List", "PaymentRequisition")" class="my-panel">
+            <div class="panel panel-default">
+                <div class="panel-heading">New</div>
+                <div class="panel-body">@Model.TotalNew</div>
+                <div class="panel-footer"><p>Has Been created but pending Signed by Manager</p></div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <!-- Approved -->
+        <a href="@Url.Action("List", "PaymentRequisition")" class="my-panel">
+            <div class="panel panel-default">
+                <div class="panel-heading">Approved</div>
+                <div class="panel-body">@Model.TotalApproved</div>
+                <div class="panel-footer">Has been Signed by Manager</div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <!-- All -->
+        <a href="@Url.Action("List", "PaymentRequisition")" class="my-panel">
+            <div class="panel panel-default">
+                <div class="panel-heading">Total</div>
+                <div class="panel-body">@Model.Total</div>
+                <div class="panel-footer">All Payment Requisition</div>
+            </div>
+        </a>
+    </div>
+</div>
