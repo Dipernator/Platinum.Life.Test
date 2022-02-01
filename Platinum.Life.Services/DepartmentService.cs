@@ -79,5 +79,26 @@ namespace Platinum.Life.Services
                 return new Response<Department>() { Entity = new Department(), Message = ex.Message, Success = false };
             }
         }
+
+        /// <summary>
+        /// Get all Department
+        /// </summary>
+        /// <returns></returns>
+        public Response<List<Department>> GetAll()
+        {
+            try
+            {
+                Data.DbContext context = new Data.DbContext();
+
+                List<Department> result = context.Department.ToList();
+
+                return (result != null) ? new Response<List<Department>>() { Entity = result, Message = "", Success = true } : new Response<List<Department>>() { Entity = result, Message = "", Success = false };
+            }
+            catch (Exception ex)
+            {
+                LoggingService.Instance.LogException(ex);
+                return new Response<List<Department>>() { Entity = null, Message = ex.Message, Success = false };
+            }
+        }
     }
 }

@@ -42,10 +42,6 @@ namespace Platinum.Life.Services
                 Data.DbContext context = new Data.DbContext();
                 // Default Payment requisition status to new
                 model.StatusId = (int)PaymentRequisitionStatus.New;
-                //model.Signature = new Signature();
-                //model.DepartmentId = 1;
-                //model.Attachment = new Attachment();
-                //model.DateOfInvoice = DateTime.Now;
                 context.PaymentRequisition.Add(model);
 
                 int result = context.SaveChanges();

@@ -1,4 +1,4 @@
-﻿@model Platinum.Life.Entities.PaymentRequisition
+﻿@model Platinum.Life.Web2.Models.PaymentRequisitionViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -35,9 +35,10 @@
                     <div class="col-md-6">
                         <label for="DepartmentId">Department</label><br />
                         <select name="DepartmentId" id="DepartmentId">
-                            <option value="1">Accounting and Financial</option>
-                            <option value="2">Human Resources</option>
-                            <option value="3">Marketing</option>
+                            @foreach (var department in Model.Department)
+                            {
+                                <option value="@department.Id">@department.Name</option>
+                            }
                             <option value="0">-- Add New Department --</option>
                         </select>
                     </div>

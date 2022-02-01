@@ -40,21 +40,20 @@ namespace Platinum.Life.Web2.Controllers
             }
         }
 
-        [HttpGet]
         [AllowAnonymous]
         public ActionResult Login()
         {
-            return View(new LoginUserModel());
+            return View();
         }
 
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<JsonResult> Login(LoginUserModel model)
+        public JsonResult Login(LoginUserModel model)
         {
             try
             {
-                SignInStatus signInStatusResult = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+                SignInStatus signInStatusResult = SignInManager.PasswordSignIn(model.Email, model.Password, model.RememberMe, shouldLockout: false);
 
                 // TODO : Clean up
                 switch (signInStatusResult)
@@ -133,11 +132,12 @@ namespace Platinum.Life.Web2.Controllers
             }
         }
 
+        [AllowAnonymous]
         public ActionResult LogOff()
         {
             var AuthenticationManager = HttpContext.GetOwinContext().Authentication;
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
     }
-}
+}   

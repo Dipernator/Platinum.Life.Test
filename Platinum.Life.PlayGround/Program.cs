@@ -16,6 +16,8 @@ namespace Platinum.Life.PlayGround
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Thank you...");
+            Console.ReadLine();
         }
     }
 }

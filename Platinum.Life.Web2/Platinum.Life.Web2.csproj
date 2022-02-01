@@ -312,6 +312,7 @@
     <Content Include="Views\Upload\UploadFile.cshtml" />
     <Content Include="Views\Shared\Print.cshtml" />
     <Content Include="Views\PaymentRequisition\Dashboard.cshtml" />
+    <Content Include="Views\Shared\_InvoiceBanking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

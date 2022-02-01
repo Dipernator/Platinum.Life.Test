@@ -4,6 +4,7 @@ using Platinum.Life.Entities;
 using Platinum.Life.Services;
 using Platinum.Life.Web2.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -124,7 +125,12 @@ namespace Platinum.Life.Web2.Controllers
             ViewBag.Surname = user.Surname;
             ViewBag.Email = user.Email;
 
-            return View(new PaymentRequisitionViewModel());
+            PaymentRequisitionViewModel model = new PaymentRequisitionViewModel
+            {
+                Department = DepartmentService.Instance.GetAll().Entity
+            };
+
+            return View(model); 
         }
 
         [HttpPost]
