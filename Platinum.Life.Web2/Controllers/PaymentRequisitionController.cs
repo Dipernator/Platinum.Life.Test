@@ -268,74 +268,6 @@ namespace Platinum.Life.Web2.Controllers
             }
         }
 
-        //public ActionResult PrintViewToPdf()
-        //{
-        //    var report = new Rotativa.ActionAsPdf("Print");
-        //    return report;
-        //}
-
-        //[Authorize]
-        //public ActionResult PrintPartialViewToPdf(int paymentRequisitionId)
-        //{
-        //    try
-        //    {
-        //        Response<PaymentRequisition> paymentRequisitionResult = PaymentRequisitionService.Instance.GetById(paymentRequisitionId);
-        //        if (!paymentRequisitionResult.Success || paymentRequisitionResult == null)
-        //        {
-        //            return View(new Response<PaymentRequisition>());
-        //        }
-
-        //        Response<PaymentRequisition> paymentRequisition = PaymentRequisitionService.Instance.UpdateStatus(User.Identity.GetUserId(), paymentRequisitionId, PaymentRequisitionStatus.Approved);
-
-        //        if (paymentRequisitionResult.Entity.Signature == null)
-        //        {
-        //            paymentRequisitionResult.Entity.Signature = SignatureService.Instance.GetByUserId(User.Identity.GetUserId()).Entity;
-
-        //            paymentRequisitionResult.Entity.Signature.PaymentRequisitionId = paymentRequisitionId;
-        //        }
-        //        var asd = PaymentRequisitionService.Instance.CreateSignature(paymentRequisitionResult.Entity.Signature);
-
-        //        User user = UserManager.FindById(paymentRequisition.Entity.UserId);
-
-        //        // Sent Email you user that the payment requisition has been Approved
-        //        CommunicationsService.Instance.SentEmail(new Email()
-        //        {
-        //            Body = $"Hi, Payment Requisition ({paymentRequisition.Entity.Id}) has been {PaymentRequisitionStatus.Approved} by {User.Identity.GetUserName()}",
-        //            Subject = $"Payment Requisition",
-        //            To = user.Email
-        //        });
-
-        //        PaymentRequisitionViewModel paymentRequisitionViewModel = new PaymentRequisitionViewModel()
-        //        {
-        //            Attachment = paymentRequisitionResult.Entity.Attachment,
-        //            BankDetails = paymentRequisitionResult.Entity.BankDetails,
-        //            CreateDate = paymentRequisitionResult.Entity.CreateDate,
-        //            CreateDateTime = paymentRequisitionResult.Entity.CreateDateTime,
-        //            DateOfInvoice = paymentRequisitionResult.Entity.DateOfInvoice,
-        //            DepartmentId = paymentRequisitionResult.Entity.DepartmentId,
-        //            Description = paymentRequisitionResult.Entity.Description,
-        //            Id = paymentRequisitionResult.Entity.Id,
-        //            ModifiedDateTime = paymentRequisitionResult.Entity.ModifiedDateTime,
-        //            Signature = paymentRequisitionResult.Entity.Signature,
-        //            StatusId = paymentRequisitionResult.Entity.StatusId,
-        //            UserId = paymentRequisitionResult.Entity.UserId,
-        //            DepartmentName = ""
-        //        };
-
-        //        //var report = new Rotativa.ActionAsPdf("Temp", new { id = paymentRequisitionId });
-        //        var report = new Rotativa.ActionAsPdf("Print", new { id = paymentRequisitionId });
-        //        //Rotativa.PartialViewAsPdf report = new Rotativa.PartialViewAsPdf("~/Views/PaymentRequisition/Details.cshtml", new { });
-
-        //        return report;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        LoggingService.Instance.LogException(ex);
-        //        // TODO : error page
-        //        return View();
-        //    }
-        //}
-
         // CLEAN UP
         [Authorize(Roles = "Admin")]
         public ActionResult SignOff(int paymentRequisitionId)
@@ -360,24 +292,6 @@ namespace Platinum.Life.Web2.Controllers
                     }
                 }
 
-                //PaymentRequisitionViewModel paymentRequisitionViewModel = new PaymentRequisitionViewModel()
-                //{
-                //    Attachment = paymentRequisitionResult.Entity.Attachment,
-                //    BankDetails = paymentRequisitionResult.Entity.BankDetails,
-                //    CreateDate = paymentRequisitionResult.Entity.CreateDate,
-                //    CreateDateTime = paymentRequisitionResult.Entity.CreateDateTime,
-                //    DateOfInvoice = paymentRequisitionResult.Entity.DateOfInvoice,
-                //    DepartmentId = paymentRequisitionResult.Entity.DepartmentId,
-                //    Description = paymentRequisitionResult.Entity.Description,
-                //    Id = paymentRequisitionResult.Entity.Id,
-                //    ModifiedDateTime = paymentRequisitionResult.Entity.ModifiedDateTime,
-                //    Signature = paymentRequisitionResult.Entity.Signature,
-                //    StatusId = paymentRequisitionResult.Entity.StatusId,
-                //    UserId = paymentRequisitionResult.Entity.UserId,
-                //    DepartmentName = DepartmentService.Instance.GetById(paymentRequisitionResult.Entity.DepartmentId).Entity.Name // TODO fix
-                //};
-
-
                 IQueryable<User> users = UserManager.Users;
                 User user = users.Where(m => m.Id == userId).FirstOrDefault();
 
@@ -391,19 +305,14 @@ namespace Platinum.Life.Web2.Controllers
                     SignatureUrl = paymentRequisitionResult.Entity.Signature.Url,
                     BankDetail = $"{ paymentRequisitionResult.Entity.BankDetails.AccountHolder}, { paymentRequisitionResult.Entity.BankDetails.AccountNumber}, { paymentRequisitionResult.Entity.BankDetails.Bank}, { paymentRequisitionResult.Entity.BankDetails.Bank}",
                 };
-                //var report = new Rotativa.ActionAsPdf("Temp", new { id = paymentRequisitionId });
+
                 var report = new Rotativa.ActionAsPdf("Print", print);
-                //Rotativa.PartialViewAsPdf report = new Rotativa.PartialViewAsPdf("~/Views/PaymentRequisition/Details.cshtml", new { });
 
                 return report;
-
-                //ViewBag.UserId = userId;
-                //return View("Details", paymentRequisitionViewModel);
             }
             catch (Exception ex)
             {
                 LoggingService.Instance.LogException(ex);
-                // TODO : error page
                 return View();
             }
         }
