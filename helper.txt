@@ -4,8 +4,4 @@ update-database
 update-database Verbose
 
 
-<a href="/PaymentRequisition/Create" Index class="Button">
-    <div class="row">
-        <h3 style="background-color: #46dc46; color: white; text-align: center; padding: 5px 0 5px 0; text-decoration: none;">Create New Payment Requisition</h3>
-    </div>
-</a>
+truncate table [PaymentRequisitions]

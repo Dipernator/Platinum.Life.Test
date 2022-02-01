@@ -1,4 +1,4 @@
-﻿@model Platinum.Life.Web2.Models.PaymentRequisitionViewModel
+﻿@model Platinum.Life.Web2.Models.PrintViewModel
 @{
     Layout = null;
 }
@@ -110,8 +110,8 @@
 
                             <td>
                                 Payment Requisition #: @Model.Id<br />
-                                Created: @Model.CreateDate<br />
-                                Due: @Model.DateOfInvoice
+                                Created: @Model.CreatedByName<br />
+                                Due: @Model.CreatedDate
                             </td>
                         </tr>
                     </table>
@@ -139,7 +139,17 @@
 
             <tr class="details">
                 <td>Name <br /> @Model.CreatedByName</td>
-                <td>Date <br /> @Model.CreateDate</td>
+
+            </tr>
+
+            <tr class="heading">
+                <td>Banking Detail</td>
+                <td></td>
+            </tr>
+
+            <tr class="details">
+                <td> @Model.BankDetail</td>
+                <td></td>
             </tr>
 
             <tr class="heading">
@@ -148,7 +158,7 @@
             </tr>
 
             <tr class="item">
-                <td><img src="~/UploadedFiles/Signature/@Model.Signature.Url" style="max-width: 200px;" /></td>
+                <td><img src="~/UploadedFiles/Signature/@Model.SignatureUrl" style="max-width: 200px;" /></td>
                 <td></td>
             </tr>
         </table>
